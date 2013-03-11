@@ -917,21 +917,22 @@ echo $ooo;
 		var img_names = new Array(); 
 		
 		
-		$(document).ready(function(){					
+		$(document).ready(function(){	
+				
 		/*
 		$('.mapa').live('mouseover',function(){
 			$('#file_upload').children('div').css('color', '');
 			$('#file_upload').children('div').css('background-color', '');
 			$('#file_upload').uploadify('disable', true);
 		});	
-				
+			*/	
 		$('#file_upload').live('mouseover',function(){
 			if(!$('#file_upload').children('div').hasClass('disabled'))
 			{
 				$(this).children('div').css('background-color', '#F99D31');
 				$(this).children('div').css('color', '#000');
 			}
-		});*/
+		});
 		
 		$('#file_upload').live('mouseout',function(){
 			if(!$('#file_upload').children('div').hasClass('disabled'))

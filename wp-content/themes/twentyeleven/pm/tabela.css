@@ -1,0 +1,90 @@
+/* tooltip styling */
+.wybor {
+	text-align:right;
+	position:relative;
+	margin:0px;
+}
+a.wybor{
+	color:#000;
+	font-size:16px;
+	font-weight:bold;
+	text-decoration:none;
+}
+#katalog {
+	position:relative;
+}
+#tabela {
+	display:none;
+}
+.show_tooltip {
+	margin:1px;
+}
+.tooltip {
+	display:none;
+	height:auto;
+	width:auto;
+}
+
+table.tooltip_table{
+	
+	border: 2px solid #666;
+	border-collapse: collapse;
+}
+
+table.tooltip_table td{
+	background:#E2E2E2;	
+	padding-bottom:3px;
+	padding-top:3px;
+	font-size:10px;
+	color:black;
+	border: 1px solid black;
+}
+
+/* a .label element inside tooltip */
+.tooltip .label {
+	color:black;
+	font-size:10px;
+	font-weight:bold;
+	width:140px;
+}
+
+
+/* tables */
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:0px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #999;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#CCC;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #666;
+}

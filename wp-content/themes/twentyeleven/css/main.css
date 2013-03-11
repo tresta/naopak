@@ -1,0 +1,67 @@
+#content{width: 685px; float: left; margin-bottom: 10px;}
+.boxGray{width:100%; overflow:hidden;}
+	.boxGray .boxGrayTitle		{ background:url(../../images/upload/box-gray.gif) no-repeat left top; padding-left:10px }
+	.boxGray .boxGrayTitle DIV	{ background:url(../../images/upload/box-gray.gif) no-repeat right top; padding-right:10px; line-height:31px; height:31px; font-size:16px; font-weight:bold; color:#FFF }
+	.boxGray .boxGrayTitle SPAN	{ font-size:10px; line-height:10px }
+	.boxGray .boxGrayMargin		{ padding:0 50px; border-left:1px #e0e0e0 solid; border-right:1px #e0e0e0 solid;position:relative; }
+	.boxGray .boxGrayBottom		{ background:url(../../images/upload/box-gray.gif) no-repeat left bottom; overflow:hidden; padding-left:10px; height:4px; font-size:1px }
+	.boxGray .boxGrayBottom DIV	{ background:url(../../images/upload/box-gray.gif) no-repeat right bottom; height:4px; padding-right:10px; font-size:1px }
+	
+.boxGraySimple				{ width:100%; overflow:hidden }
+	.boxGraySimpleTop,
+	.boxGraySimpleBottom,
+	.boxGraySimpleTop DIV,
+	.boxGraySimpleBottom DIV{ background:url(../../images/upload/box-gray-simple.gif) no-repeat left top; height:5px; line-height:5px; font-size:1px }
+	.boxGraySimpleTop DIV	{ background-position:right top }
+	.boxGraySimpleBottom	{ background-position:left bottom }
+	.boxGraySimpleBottom DIV{ background-position:right bottom }
+	.boxGraySimpleTop,
+	.boxGraySimpleBottom	{ padding-left:10px }
+	.boxGraySimpleTop DIV,
+	.boxGraySimpleBottom DIV{ padding-right:10px }
+	.boxGraySimpleMargin	{ background:#f5f5f6; border-left:1px #e0e0e0 solid; border-right:1px #e0e0e0 solid; padding:6px 0; overflow:hidden; zoom:1 }
+.pageUpload .boxGrayMargin	{ padding:10px; overflow:hidden; border-bottom:1px #E0E0E0 solid }
+	.pageUpload .boxGrayMargin INPUT{ float:left }
+	.pageUpload .boxGrayMargin P	{ padding-left: 150px; width:700px; color:#48494a }
+UL.upload			{ width:100%; color:#1e1900; list-style:none outside none;}
+	UL.upload LI				{ border-bottom:1px #e0e0e0 solid; line-height:22px }
+	UL.upload LI.last			{ border-bottom:none }
+	UL.upload LI .items			{ overflow:hidden; zoom:1; padding:10px 15px }
+	UL.upload LI STRONG,
+	UL.upload LI B,
+	UL.upload LI EM,
+	UL.upload LI SPAN			{ display:block; float:left; overflow:hidden }
+	UL.upload LI STRONG			{ width:122px }
+	UL.upload LI B				{ width:80px; font-weight:normal }
+	UL.upload LI EM				{ width:400px; font-style:normal }
+		UL.upload LI EM INPUT		{ width:394px }
+	UL.upload LI SPAN			{ width:60px; padding-left:15px; text-align:center; float:right; background:url(../../images/upload/border_gray.gif) repeat-y left top; font-weight:bold }
+	UL.upload LI SPAN.wait		{ font-weight:normal }
+	UL.upload LI SPAN.error A	{ color:#FF0000 }
+	UL.upload LI .details		{ overflow:hidden; zoom:1; padding:10px 0; width:100%; background:url(../../images/upload/border_gray.gif) repeat-y 284px top; border-top:5px #FFF solid; border-bottom:5px #FFF solid }
+		UL.upload LI .details .category		{ float:left; width:245px; padding-left:38px }
+			UL.upload LI .details .category P			{ padding:10px 0 }
+			UL.upload LI .details .category SELECT		{ width:200px }
+				ul.upload li .details .category .new		{ padding-top:26px }
+				UL.upload LI .details .category .new LABEL	{ font-weight:bold }
+				UL.upload LI .details .category .new INPUT	{ width:160px; margin-right:10px }
+				UL.upload LI .details .category .new .submit{ background:none; border:none; text-transform:uppercase; width:auto }
+		UL.upload LI .details .title		{ float:right; width:460px; padding-right:40px }
+			UL.upload LI .details .title P			{ width:100%; overflow:hidden; padding-bottom:10px }
+			UL.upload LI .details .title LABEL		{ font-weight:bold; color:#1E1900; width:75px; text-align:right; display:block; float:left }
+			UL.upload LI .details .title SPAN		{ font-size:9px; display:inline; float:none; padding:0; background:none; line-height:normal; color:#FF0000 }
+			UL.upload LI .details .title EM			{ font-size:9px; display:block; padding-left:88px; font-style:normal; line-height:normal; color:#333; margin-top:-1px }
+			UL.upload LI .details .title INPUT,
+			UL.upload LI .details .title TEXTAREA	{ float:right; width:370px; border:1px #a7a6aa solid }
+			UL.upload LI .details .title TEXTAREA	{ height:60px }
+	UL.upload LI.uploadOpen .items		{ background:#f5f5f6 }
+	UL.upload LI.uploadLoading EM		{ border:1px #a7a6aa solid; font-size:11px; line-height:10px; height:13px }
+	UL.upload LI.uploadLoading EM IMG	{ height:13px; background:#e5e5e5; vertical-align:middle; margin-right:5px }
+.pageUpload .boxGraySimple P			{ color:#48494a }
+.pageUpload .boxGraySimple .message		{ float:left; width:440px; padding-left:10px }
+	.pageUpload .boxGraySimple .message P	{ padding-top:10px }
+.pageUpload .boxGraySimple DIV.submit	{ float:right; width:280px; padding-right:10px; text-align:right }
+	.pageUpload .boxGraySimple DIV.submit P		{ width:100%; overflow:hidden }
+	.pageUpload .boxGraySimple DIV.submit .btn	{ float:right; font-weight:bold; margin-bottom:5px; width:auto }
+	.ok		{ color:#2c9b08 }
+	.error	{ color:#ff0202; text-decoration:underline }

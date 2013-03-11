@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+/******* FORM *******/
+/*
+#table_tagi{
+	padding: 0 10px 10px;
+}
+#table_tagi label{
+	display: block;
+	color: #797979;
+	font-weight: 700;
+	line-height: 1.4em;
+}*/
+/*#tag_buttons1 > input{
+	width: 220px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}*/
+select{
+	width: 150px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+input{
+	width: 90px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+/*
+#tag_buttons1 #button{
+	background: #999;
+	color: #fff;
+	font-weight: 700;
+	font-style: normal;
+	border: 0;
+	cursor: pointer;
+}
+#tag_buttons1 #button:hover{
+	background: #666;
+}
+*/
+/******* /FORM *******/

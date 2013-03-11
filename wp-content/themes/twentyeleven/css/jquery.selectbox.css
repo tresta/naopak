@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+.sbHolder{
+	background-color: #CCC;
+	/*border: solid 1px #515151;*/
+	border: none;
+	font-family: Arial, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	height: 17px;
+	position: relative;
+	width: 80px;
+	float:right;
+}
+.sbHolder:focus .sbSelector{
+	
+}
+.sbSelector{
+	display: block;
+	height: 17px;
+	left: 0;
+	line-height: 17px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 5px;
+	top: 0;
+	width: 63px;
+}
+div.content .sbSelector:link, div.content .sbSelector:visited, div.content .sbSelector:hover{
+	color: #FFF;
+	outline: none;
+	text-decoration: none;
+	
+}
+.sbToggle{
+	background: url(../../../../img/option_arrow.jpg) 0 -17px no-repeat;
+	display: block;
+	height: 17px;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 17px;
+}
+.sbToggle:hover{
+	background: url(../../../../img/option_arrow.jpg) 0 -17px no-repeat;
+}
+.sbToggleOpen{
+	background: url(../../../../img/option_arrow.jpg) 0 0px no-repeat;
+}
+.sbToggleOpen:hover{
+	background: url(../../../../img/option_arrow.jpg) 0 0px no-repeat;
+}
+.sbHolderDisabled{
+	background-color: #CCC;
+	border: none;
+}
+.sbHolderDisabled .sbHolder{
+	
+}
+.sbHolderDisabled .sbToggle{
+	
+}
+.sbOptions{
+	background-color: #CCC;
+	border: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 17px;
+	width: 80px;
+	z-index: 1;
+	overflow-y: auto;
+}
+.sbOptions li{
+	padding: 0px;
+}
+.sbOptions a{
+	text-indent: 5px;
+	/*border-bottom: dotted 1px #515151;*/
+	display: block;
+	outline: none;
+	padding: 2px 0 2px 0px;
+}
+div.content .sbOptions a:link, div.content .sbOptions a:visited{
+	color: #FFF;
+	text-decoration: none;
+}
+div.content .sbOptions li:hover,
+div.content .sbOptions li:focus,
+div.content .sbOptions a.sbFocus{
+	color: #000;
+	background-color:#F99D31;
+	text-decoration: none;
+}
+
+.sbOptions li.last a{
+	border-bottom: none;
+}
+.sbOptions .sbDisabled{
+	/*border-bottom: dotted 1px #515151;*/
+	color: #000;
+	display: block;
+	padding: 1px 0px 1px 0px;
+}
+.sbOptions .sbGroup{
+	/*border-bottom: dotted 1px #515151;*/
+	color: #000;
+	display: block;
+	font-weight: bold;
+	padding: 1px 0px 1px 0px;
+}
+.sbOptions .sbSub{
+	padding-left: 17px;
+}

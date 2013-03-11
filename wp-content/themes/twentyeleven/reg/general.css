@@ -1,0 +1,192 @@
+@CHARSET "UTF-8";
+
+/******* FORM *******/
+.echo
+{
+	color:#F00;
+}
+
+.ProdRegDesc{
+	font-size:12px;
+	margin-top:10px;
+	margin-left:10px;
+	margin-bottom:10px;
+	display:block;
+	width:460px;
+}
+
+.ProdRegZgoda{
+	width:463px;
+	font-size:10px;
+	color:#999;
+	font-style:italic;
+}
+.PrzetwarzanieZgoda{
+	padding: 10px;
+}
+
+.rejestracja
+{
+	width:1000px;
+	margin-left:0px;
+	margin-top:10px;
+}
+.rejestracjaForm
+{
+	float:left;
+	width:550px;	
+}
+.rejestracjaOpis
+{
+	float:right;
+	width:450px;
+	color: #797979;;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;	
+	margin-top:100px;
+}
+.rejestracjaOpis p
+{
+	margin-bottom:150px;
+}
+div.content #center_content .rejestracjaProducentaOpis p
+{
+	float:right;
+	width:500px;
+	color: #797979;;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;	
+	margin-top:20px;
+}
+.rejestracjaProducentaOpis p
+{
+	margin-bottom:50px;
+}
+#check
+{
+	color: #797979;;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	width:490px;
+}
+.leftForm
+{
+	float:left;
+	margin-right:25px;	
+}
+.formclear
+{
+	clear:both;	
+}
+#formh4
+{
+	display: block;
+	color: #000;
+	font-weight: 700;
+	font-size:24px;
+}
+#customForm{
+	padding: 0 10px 10px;
+}
+#customForm label{
+	display: block;
+	color: #797979;
+	font-weight: 700;
+	line-height: 1.4em;
+}
+#customForm input{	
+	padding: 6px;
+	color: #000;
+	border: 1px solid #000;
+}
+#customForm select{
+	width: 220px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+#listaOsob input{
+	width: 120px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+
+
+
+#customForm input.error{
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+#customForm textarea{
+	width: 450px;
+	height: 80px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-style: italic;
+	font-size: 12px;
+	border: 1px solid #000;
+}
+#customForm textarea.error{
+	background: #;
+	border-color: #e77776;
+}
+#customForm div{
+	margin-bottom: 5px;
+}
+#customForm div span{
+	margin-left: 10px;
+	color: #b1b1b1;
+	font-size: 11px;
+	font-style: italic;
+}
+#customForm div span.error{
+	color: #e46c6e;
+}
+#customForm #submit{
+	background: #999;
+	color: #fff;
+	font-weight: 700;
+	font-style: normal;
+	border: 0;
+	cursor: pointer;
+}
+#customForm #submit:hover{
+	background: #666;
+}
+#customForm #send{
+	background: #999;
+	color: #fff;
+	font-weight: 700;
+	font-style: normal;
+	border: 0;
+	cursor: pointer;
+}
+#customForm #send:hover{
+	background: #666;
+}
+#error{
+	margin-bottom: 20px;
+	border: 1px solid #efefef;
+}
+#error ul{
+	list-style: square;
+	padding: 5px;
+	font-size: 11px;
+}
+#error ul li{
+	list-style-position: inside;
+	line-height: 1.6em;
+}
+#error ul li strong{
+	color: #e46c6d;
+}
+#error.valid ul li strong{
+	color: #93d72e;
+}
+/******* /FORM *******/

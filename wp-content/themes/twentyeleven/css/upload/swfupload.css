@@ -1,0 +1,8 @@
+.swfupload {
+	position: absolute;
+	z-index: 1;
+	vertical-align:top;
+	/*margin-left:-61px;*/
+	left: 10px;
+	width: 100%;
+}		

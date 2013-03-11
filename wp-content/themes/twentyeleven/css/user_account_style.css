@@ -1,0 +1,52 @@
+#main_content{
+	min-width:1000px;
+	float:left;
+	position:relative;
+}
+
+#menu_lewe{
+	float:left;
+	position:relative;
+	padding-right:10px;
+	margin-left:15px;
+}
+
+#center_content{
+	float:left;
+	margin-left:10px;
+	position:relative;
+}
+
+dd{
+	margin-bottom:0px;	
+	margin-left:15px;
+}
+
+
+div.content a.menu{
+	text-decoration:none;
+	color:black;	
+}
+
+div.content .menu{
+	text-decoration:none;
+	color:black;	
+}
+
+div.content a:link.on {color:#1fb5da; text-decoration:none; } /* unvisited link */
+div.content a:visited.on {color:#1fb5da; text-decoration:none; } /* visited link */
+div.content a:hover.on {color:#1fb5da; text-decoration:none; } /* mouse over link */
+div.content a:active.on {color:#1fb5da; text-decoration:none; } /* selected link */
+
+div.content a:link.over {color:#1fb5da; text-decoration:none; } /* unvisited link */
+div.content a:visited.over {color:#1fb5da; text-decoration:none; } /* visited link */
+div.content a:hover.over {color:#1fb5da; text-decoration:none; } /* mouse over link */
+div.content a:active.over {color:#1fb5da; text-decoration:none; } /* selected link */
+	
+div.content .on{
+	color:#1fb5da;
+	}
+	
+div.content .over{
+	color: #1fb5da;
+	}		

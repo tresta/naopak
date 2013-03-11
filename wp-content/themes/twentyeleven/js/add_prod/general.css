@@ -1,0 +1,153 @@
+@CHARSET "UTF-8";
+
+/******* FORM *******/
+.rejestracja
+{
+	width:1000px;
+	margin-left:-10px;
+}
+.rejestracjaForm
+{
+	float:left;
+	width:550px;	
+}
+.rejestracjaOpis
+{
+	float:right;
+	width:450px;
+	color: #797979;;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;	
+	margin-top:100px;
+}
+.rejestracjaOpis p
+{
+	margin-bottom:150px;
+}
+#check
+{
+	color: #797979;;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	width:490px;
+}
+.leftForm
+{
+	float:left;
+	margin-right:25px;	
+}
+.formclear
+{
+	clear:both;	
+}
+#formh4
+{
+	display: block;
+	color: #000;
+	font-weight: 700;
+	font-size:24px;
+}
+#add_product_form{
+	padding: 0 10px 10px;
+}
+#add_product_form label{
+	display: block;
+	color: #797979;
+	font-weight: 700;
+	line-height: 1.4em;
+}
+#add_product_form input{
+	width: 220px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+#add_product_form select{
+	width: 220px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+#listaOsob input{
+	width: 120px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #000;
+}
+
+#add_product_form input.error{
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+#add_product_form textarea{
+	width: 550px;
+	height: 80px;
+	padding: 6px;
+	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-style: italic;
+	font-size: 12px;
+	border: 1px solid #000;
+}
+#add_product_form textarea.error{
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+#add_product_form div{
+	/*margin-bottom: 5px;*/
+}
+
+#add_product_form span.error{
+	color: #e46c6e;
+	margin-left: 10px;
+	font-size: 11px;
+	font-style: italic;
+}
+#add_product_form #submit{
+	background: #999;
+	color: #fff;
+	font-weight: 700;
+	font-style: normal;
+	border: 0;
+	cursor: pointer;
+}
+#add_product_form #submit:hover{
+	background: #666;
+}
+#add_product_form #send{
+	background: #999;
+	color: #fff;
+	font-weight: 700;
+	font-style: normal;
+	border: 0;
+	cursor: pointer;
+}
+#add_product_form #send:hover{
+	background: #666;
+}
+#error{
+	margin-bottom: 20px;
+	border: 1px solid #efefef;
+}
+#error ul{
+	list-style: square;
+	padding: 5px;
+	font-size: 11px;
+}
+#error ul li{
+	list-style-position: inside;
+	line-height: 1.6em;
+}
+#error ul li strong{
+	color: #e46c6d;
+}
+#error.valid ul li strong{
+	color: #93d72e;
+}
+/******* /FORM *******/

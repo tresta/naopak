@@ -1,0 +1,7 @@
+#fileQueue {
+	width: 350px;
+	height: 90px;
+	overflow: auto;
+	
+	margin-bottom: 10px;
+}

@@ -51,9 +51,9 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 	);
 	background-position: center bottom;
 }
-.uploadify-button.disabled {
-	background-color: #D0D0D0;
-	color: #808080;
+#add_product_form_table .uploadify-button.disabled {
+	background-color: #EEE;
+	color: #D5D5D5;
 }
 .uploadify-queue {
 	/*margin-bottom: 1em;*/

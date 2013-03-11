@@ -242,8 +242,8 @@ div.content .over{
 #_crop_cancel_bttn {
 	margin-left:10px;
 }
-
-#add_product_form_table .uploadify:hover .uploadify-button, #add_product_form_table .add_btn:hover {
+/*
+#add_product_form_table .uploadify:hover .uploadify-button,*/ #add_product_form_table .add_btn:hover {
         color: #000;
 		background-color: #F99D31;
 		text-shadow:none;
@@ -917,17 +917,30 @@ echo $ooo;
 		var img_names = new Array(); 
 		
 		
-		$(document).ready(function(){	
-			//var jcrop_api;		
-		/*		
-		jQuery('#_crop_bttn').hover(function(){
-			jQuery(this).css('background-color', '#F99D31');
-			jQuery(this).css('color', '#333');
-		},function(){
-			jQuery(this).css('background-color', '#CCC');
-			jQuery(this).css('color', '#FFF');
+		$(document).ready(function(){					
+		/*
+		$('.mapa').live('mouseover',function(){
+			$('#file_upload').children('div').css('color', '');
+			$('#file_upload').children('div').css('background-color', '');
+			$('#file_upload').uploadify('disable', true);
+		});	
+				
+		$('#file_upload').live('mouseover',function(){
+			if(!$('#file_upload').children('div').hasClass('disabled'))
+			{
+				$(this).children('div').css('background-color', '#F99D31');
+				$(this).children('div').css('color', '#000');
+			}
+		});*/
+		
+		$('#file_upload').live('mouseout',function(){
+			if(!$('#file_upload').children('div').hasClass('disabled'))
+			{
+				$(this).children('div').css('background-color', '#CCC');
+				$(this).children('div').css('color', '#FFF');
+			}
 		});
-		*/
+		
 		$('.obraz_produktu').live( 'mousemove',  
 			function(e) // on
 			{

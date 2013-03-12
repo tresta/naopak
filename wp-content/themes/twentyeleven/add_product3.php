@@ -622,22 +622,26 @@ if(isset($_POST['prod_id']))
 		,0)"; 
 	*/ 
 		
-	    $insert_sql = "INSERT INTO s_produkt (prod_id, nazwa, cena, opis, dostepnosc, id_projektant, id_kategoria, id_tag, data_dodania, promowany) VALUES ('"
+	    $insert_sql = "INSERT INTO s_produkt (prod_id, nazwa, cena, opis, szerokosc, wysokosc, glebokosc, waga, dostepnosc, id_projektant, id_kategoria, id_tag, data_dodania, promowany) VALUES ('"
 		.$_POST['prod_id']."','"
 		.$_POST['nazwa_produktu']."',"
 		.$_POST['cena'].",'"		
-		.nl2br($_POST['opis'])."',
-		1,
+		.nl2br($_POST['opis'])."',"
+		.$_POST['szerokosc'].","
+        .$_POST['wysokosc'].","
+        .$_POST['glebokosc'].","
+        .$_POST['waga'].",
+        1,
 		".$projektant_id[0].","
 		.$_POST['kategoria'].","
 		.$id_tag[0].", 
 		CURDATE() 
 		,0)"; 
 	
-	//echo "<br />".$insert_sql."<br />";
+	echo "<br />".$insert_sql."<br />";
 
-	$wpdb->query($insert_sql);
-	echo  '<script>location.href = "http://naopak.com.pl/item?prod_id='.$_POST['prod_id'].'"</script>';
+	//$wpdb->query($insert_sql);
+	//echo  '<script>location.href = "http://naopak.com.pl/item?prod_id='.$_POST['prod_id'].'"</script>';
 	
 	
 }
@@ -653,7 +657,7 @@ else
 //echo "<h1>$prod_id</h1>";
 ?>
 <!--<input name="del_cookie" type="button" id="del_cookie" value="delete COOKIE" />-->
-<form id="add_product_form" name="add_product_form" action="http://naopak.com.pl/prod" method="post" >
+<form id="add_product_form" name="add_product_form" action="http://naopak.com.pl/dodawanie-produktu" method="post" >
 <input type="hidden" name="prod_id" id="prod_id" value="<?php echo $prod_id; ?>" />
 <table id="add_product_form_table" width="200" border="1">
   <tr>
@@ -772,7 +776,11 @@ else
   </td></tr>
   </table>
   </td>
-
+  </tr>
+  <tr>
+    <td><label for="waga">waga:</label><input name="waga" type="text" id="waga" />
+    <br /><span id="wagaInfo"></span>
+    </td>
   </tr>
   <tr>
     <td>

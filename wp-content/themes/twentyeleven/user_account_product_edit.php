@@ -330,14 +330,14 @@ div.content .over{
 	margin-left:10px;
 }
 
-#add_product_form_table .uploadify:hover .uploadify-button, #add_product_form_table .return_btn:hover, #add_product_form_table .edit_btn:hover {
+#add_product_form_table .uploadify:hover .uploadify-button, #add_product_form_table .return_btn:hover, #add_product_form_table .edit_btn:hover, #add_product_form_table .delete_btn:hover {
         color: #000;
 		background-color: #F99D31;
 		text-shadow:none;
 		text-decoration: none;	
 }
 	
-#add_product_form_table .uploadify-button, #add_product_form_table .return_btn, #add_product_form_table .edit_btn{
+#add_product_form_table .uploadify-button, #add_product_form_table .return_btn, #add_product_form_table .edit_btn, #add_product_form_table .delete_btn{
 	border:none;	
 	color: #FFFFFF;
 	background-color: #CCCCCC;
@@ -840,7 +840,8 @@ list_img($prod_id);
   
     <td colspan="2"><!--<input name="btn_dodaj_produkt" class="add_btn" type="submit" id="btn_dodaj_produkt" value="dodaj produkt"/>   -->
      <input name="btn_edytuj_produkt" type="submit" id="btn_edit_produkt" class="edit_btn" value="zapisz zmiany"/>	
-     <input name="btn_return" type="button" id="btn_return"class="return_btn"  value="powrót do listy produktów"/> 
+     <input name="btn_return" type="button" id="btn_return" class="return_btn"  value="powrót do listy produktów"/> <br />
+     <input name="btn_delete" type="button" id="btn_delete" class="delete_btn"  value="Usuń produkt"/> 
       </td>
 </table>
 </form>  
@@ -942,6 +943,25 @@ list_img($prod_id);
 				location.href="http://naopak.com.pl/przeglad-produktow";		
 			});	
 			
+            
+			$("#btn_delete").click(function() {
+				
+                //var folder_name = "http://naopak.com.pl/img/products/";
+                var id = <? echo $prod_id; ?>;
+                $.ajax({
+					url: "<? echo get_bloginfo('template_url'); ?>/delete_folder.php",
+					type: "POST",	
+					data: { 
+                            prod_id:id 
+                          },
+		            success: function(data)
+	                { 	
+						console.log("DELETED!");
+                        console.log("returned data: "+data);
+                        //location.href="http://naopak.com.pl/przeglad-produktow";		
+              		}
+				});
+			});	
 		$('.obraz_produktu').live( 'mousemove',  
 			function(e) // on
 			{

@@ -6,24 +6,16 @@
  * @url: http://www.customweb.com
 
  Template Name: admin - historia zamowien
- */
- ?>
+ 
+ */	
+?>
 
 <?php
-	
 function add_scripts()
 {
-		echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('template_url').'/css/table_style.css"/>';
-	
-    echo '<script type="text/javascript" src="'.get_bloginfo('template_url').'/js/jquery-latest.js"></script>';
-	echo '<script type="text/javascript" src="'.get_bloginfo('template_url').'/js/jquery.tablesorter.js"></script>';
-	
-		echo '
+/*	echo '
 	<script language="javascript">
 	jQuery(document).ready(function(){
-	
-	jQuery.tablesorter.defaults.widgets = [\'zebra\'];   	
-	jQuery("#myTable").tablesorter();
 	
 	jQuery(\'.menu\').mouseover(function() {
 		jQuery(this).addClass(\'over\');
@@ -35,9 +27,88 @@ function add_scripts()
 	
 	</script>
 	';
+	*/
+	
+		echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('template_url').'/css/table_style.css"/>';
+
+	echo '<script type="text/javascript" src="'.get_bloginfo('template_url').'/js/jquery.tablesorter.js"></script>';
 }
 add_action('wp_head', 'add_scripts');
+
+get_header();
+
 ?>
+	<script language="javascript">
+	jQuery(document).ready(function(){
+	
+   jQuery('.submenu_group').each(function(){
+		var div = jQuery(this).find('.submenu_active').length;		
+		if(div==0)
+		{
+			jQuery(this).hide();
+		}
+	});
+
+	// ********************************
+	
+
+	//ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
+		
+	jQuery('.accordionButton').click(function() {
+
+		//REMOVE THE ON CLASS FROM ALL BUTTONS
+		jQuery('.accordionButton').removeClass('on');
+		  
+		//NO MATTER WHAT WE CLOSE ALL OPEN SLIDES
+	 	jQuery('.accordionContent').slideUp('normal');
+   
+		//IF THE NEXT SLIDE WASN'T OPEN THEN OPEN IT
+		if(jQuery(this).next().is(':hidden') == true) {
+			
+			//ADD THE ON CLASS TO THE BUTTON
+			jQuery(this).addClass('on');
+			  
+			//OPEN THE SLIDE
+			jQuery(this).next().slideDown('normal');
+		 } 
+		  
+	 });
+	  
+	
+	/*** REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
+	
+	//ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER 
+	jQuery('.accordionButton').mouseover(function() {
+		jQuery(this).addClass('over');
+		
+	//ON MOUSEOUT REMOVE THE OVER CLASS
+	}).mouseout(function() {
+		jQuery(this).removeClass('over');										
+	});
+	
+	/*** END REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
+	
+	
+	/********************************************************************************************************************
+	CLOSES ALL S ON PAGE LOAD
+	********************************************************************************************************************/	
+	jQuery('.accordionContent').hide();
+	jQuery('.submenu_active').parent().show();	
+	jQuery('.submenu_active').parent().prev('.accordionButton').addClass('on');
+	
+	jQuery('.cat_selected').show();
+	
+	 // extend the default setting to always include the zebra widget. 
+    jQuery.tablesorter.defaults.widgets = ['zebra']; 
+    // extend the default setting to always sort on the first column 
+    jQuery.tablesorter.defaults.sortList = [[0,0]]; 
+    // call the tablesorter plugin 
+    jQuery("table").tablesorter(); 
+	
+	});
+	
+	</script>
+
 <style>
 
 #main_contetn{
@@ -53,42 +124,17 @@ add_action('wp_head', 'add_scripts');
 	margin-left:15px;
 }
 
-
 #center_content{
 	float:left;
 	margin-left:10px;
 	position:relative;
 }
 
-div.content dd{
+dd{
 	margin-bottom:0px;	
 	margin-left:15px;
 }
 
-.modal, .croping {
-		background-color:#fff;
-		display:none;
-		width:690px;
-		padding:15px;
-		text-align:center;
-		border:2px solid #333;
-		position:absolute;
-
-		opacity:1;
-		-moz-border-radius:6px;
-		-webkit-border-radius:6px;
-		-moz-box-shadow: 0 0 50px #ccc;
-		-webkit-box-shadow: 0 0 50px #ccc;
-}
-
-	
-.modal h2 {
-		background:url(/img/global/info.png) 0 50% no-repeat;
-		margin:0px;
-		padding:10px 0 10px 45px;
-		border-bottom:1px solid #333;
-		font-size:20px;
-}
 
 div.content a.menu{
 	text-decoration:none;
@@ -111,41 +157,133 @@ div.content a:hover.over {color:#1fb5da; text-decoration:none; } /* mouse over l
 div.content a:active.over {color:#1fb5da; text-decoration:none; } /* selected link */
 	
 div.content .on{
-	/*background: #990000;*/
 	color:#1fb5da;
 	}
 	
 div.content .over{
 	color: #1fb5da;
-	/*background: #CCCCCC;*/
-	}	
+	}		
 	
-.hfeed.content #main_contetn #center_content #myTable tr td {
-	text-align: center;
+#mapa_listowanie{
+	float:left;
+	position:relative;
+	width:100%;
+	margin-bottom:5px;
 }
-</style>
-<?
-get_header();
+.mapa{
+	margin-top:5px;
+	float:left;
+	font-size:12px;
+}
+#menu{
+	float:left;
+	position:relative;
+	padding-right:10px;
+	/*margin-left:15px;*/
+	clear:left;
+	width:211px;
+}
 
-?>
+#filter{
+	font-size:10px;
+	background-color:#e3e3e3;
+	padding: 2px 0px 2px 4px;
+}
+
+#right_content_page{
+	width: 750px;
+	float:right;
+	margin-left:10px;
+	margin-right:12px;
+	position:relative;
+}	
+
+#wrapper {
+	width: 190px;
+	margin-top:15px;
+	margin-left: 20px;
+	margin-right: auto;
+	font-weight:bold;
+	font-size:14px;
+	}
+
+.accordionButton {	
+	width: 190px;
+	float: left;
+	_float: none;  /* Float works in all browsers but IE6 */
+	/*background: #003366;*/
+	border-bottom: 1px dashed black;
+	cursor: pointer;
+	
+	}
+.accordionButtonLink {	
+	width: 190px;
+	float: left;
+	_float: none;  /* Float works in all browsers but IE6 */
+	/*background: #003366;*/
+	border-bottom: 1px dashed black;
+	cursor: pointer;
+	}	
+div.content .accordionButtonLink a{
+	text-decoration:none;
+	color:#000;
+}
+div.content .accordionButtonLink a:hover{
+	text-decoration:none;
+	color:#1fb5da;
+}	
+div.accordionContentMenu a.submenu_inactive{
+	color: black; 
+	text-decoration: none; 
+	}
+	
+div.accordionContentMenu a.submenu_active{
+	color: #1fb5da; 
+	text-decoration: none; 
+	}
+
+.accordionContentMenu {	
+	font-weight:normal;
+	width: 170px;
+	margin-left:20px;
+	float: left;
+	_float: none; /* Float works in all browsers but IE6 */
+	/*background: #95B1CE;*/
+	}
+.on {
+	/*background: #990000;*/
+	color:#1fb5da;
+	}
+	
+.over {
+	color: #1fb5da;
+	/*background: #CCCCCC;*/
+	}
+		
+</style>
+
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_url') ?>/pm/tabela.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_url') ?>/pm/general.css"type="text/css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url') ?>/css/table_style.css"/>
+
 
 <div class="hfeed content">
-<div id="main_contetn">historia zamowien
+<div id="main_contetn">
 <?php
 
 if ( is_user_logged_in() ) {
 
-    global $current_user;
-	global $wpdb;
-	
-	//$content = 'Welcome, ';
-   // $content .= 'User first name: ' . $current_user->user_firstname;
-   // $content .= 'User last name: ' . $current_user->user_lastname;
-	//$content .= '!<br>';
-    $user_roles = $current_user->roles;
-    $user_role = array_shift($user_roles);
+    
 
-	include("menu.php");
+?>
+
+<div id="mapa_listowanie">
+	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
+</div>
+<? include "menu.php"; ?>
+<div id="right_content_page" >
+<?
+$wpdb = new wpdb('root', '', 'bollo_naopak', 'localhost');
 
 	$lista="";
 	$query_historia = "SELECT s_zamowienie.id_klient, s_zamowienie.id, s_zamowienie.data AS data_zamowienia, s_status_zamowienia.nazwa, h1.data AS data_aktualizacji, SUM( s_produkt.cena ) AS wartosc
@@ -176,6 +314,10 @@ LIMIT 0 , 30";
 </tr>
 </thead>
 <tbody>';
+/*
+<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+<tr><td>a</td><td>b</td><td>ca</td><td>d4a</td><td>5a</td><td>6a</td><td>7a</td></tr>
+';*/
 
 	$id_zam="";
 	$data_zam="";
@@ -209,20 +351,10 @@ LIMIT 0 , 30";
 	}
 
 	$lista .= "</tbody></table>";
-
-	
-?>
-<div id="center_content">
-<?php
 	echo $lista;	
-?>
 
-</div>  <?php // closeing <div class="center produktow"> ?>
-	
-<?php
 } else {
     echo 'Welcome, visitor!';
-	echo '<br><br> tu bedzie redirect!';
 }
 
 ?>

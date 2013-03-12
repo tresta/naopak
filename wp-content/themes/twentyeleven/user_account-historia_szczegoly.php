@@ -138,8 +138,9 @@ get_header();
 if ( is_user_logged_in() ) {
 
     global $current_user;
-	global $wpdb;
-	
+	//global $wpdb;
+	$wpdb = new wpdb('root', '', 'bollo_naopak', 'localhost');
+    
 	$id_zamowienia = $_GET['id_zam'];
 	
 	//$content = 'Welcome, ';

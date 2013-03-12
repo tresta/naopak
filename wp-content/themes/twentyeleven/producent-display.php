@@ -2,7 +2,6 @@
 /*
  * Template Name: producent-display
  */	
-?>
 
 
 function add_scripts()

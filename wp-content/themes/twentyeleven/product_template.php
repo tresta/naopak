@@ -404,7 +404,12 @@ div.content .filtruj_btn a , div.content .powrot_btn a{
 
 $connection = @mysql_connect('localhost', 'root', '');// or die("Connection error !");
 $db = @mysql_select_db('bollo_naopak', $connection);
-
+	mysql_set_charset('utf8',$connection); 
+	mysql_query('SET character_set_connection=utf8');
+	mysql_query('SET character_set_client=utf8');
+	mysql_query('SET character_set_results=utf8');
+	mysql_query('set names utf8;');
+	
 if (!empty($_GET['prod_id'])) {
 
 $id = $_GET['prod_id'];
@@ -548,7 +553,7 @@ function list_img($prod_id, $filecount)
 			/*
 			$file_list.="<td><a class=\"image\" rel=\"img/products/".$prod_id."/id_prod_medium_".$i."_".$prod_id.".jpg\" rel2=\"img/products/".$prod_id."/id_prod_big_".$i."_".$prod_id.".jpg\"><img src=\"img/products/".$prod_id."/id_prod_small_".$i."_".$prod_id.".jpg?".$rand."\" alt=\"image\" class=\"thumb\" /></a></td>";
 			*/
-			$file_list.="<td><a class=\"image\" rel=\"img/products/".$prod_id."/".$sql_result[$i+2]."_m.jpg\" rel2=\"img/products/".$prod_id."/".$sql_result[$i+2]."_n.jpg\"><img src=\"img/products/".$prod_id."/".$sql_result[$i+2]."_t.jpg?".$rand."\" alt=\"image\" class=\"thumb\" /></a></td>";
+			$file_list.="<td><a class=\"image\" rel=\"img/products/".$prod_id."/".$sql_result[$i+2]."_b.jpg\" rel2=\"img/products/".$prod_id."/".$sql_result[$i+2]."_n.jpg\"><img src=\"img/products/".$prod_id."/".$sql_result[$i+2]."_t.jpg?".$rand."\" alt=\"image\" class=\"thumb\" /></a></td>";
 		}
 		else
 		{
@@ -576,7 +581,7 @@ $rand = rand(100,999);
 
       <div id="galeria">
             <div id="image">
-           	 <a id="single_image" href="img/products/<? echo $id_prod.'/'.$img_nr_0; ?>_n.jpg<? echo "?$rand"; ?>"><img src="img/products/<? echo $id_prod.'/'.$img_nr_0; ?>_m.jpg<? echo "?$rand"; ?>" alt="" border="0"/></a>
+           	 <a id="single_image" href="img/products/<? echo $id_prod.'/'.$img_nr_0; ?>_n.jpg<? echo "?$rand"; ?>"><img src="img/products/<? echo $id_prod.'/'.$img_nr_0; ?>_b.jpg<? echo "?$rand"; ?>" alt="" border="0"/></a>
             </div>
 	  <?php 
 	  	$path = "img/products/".$id_prod."/";

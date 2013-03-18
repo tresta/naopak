@@ -2,6 +2,12 @@
     $connection = @mysql_connect('localhost', 'root', '');
     $db = @mysql_select_db('bollo_naopak', $connection);
 
+	mysql_set_charset('utf8',$connection); 
+	mysql_query('SET character_set_connection=utf8');
+	mysql_query('SET character_set_client=utf8');
+	mysql_query('SET character_set_results=utf8');
+	mysql_query('set names utf8;');
+	
 	parse_str($_POST['form'], $params);
 	$prod_id=$params['prod_id'];
 	$id_projektant=$params['proj_id'];

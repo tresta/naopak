@@ -14,7 +14,9 @@ if (!empty($_FILES)) {
 	           					  "file" 		=>  $targetPath.'/'.$handle->file_dst_name.'?'.time(),
 	           					  "imagewidth" 	=> $handle->image_dst_x,
 	           					  "imageheight"	=> $handle->image_dst_y,
-								  "img_id"      => $pic_temp,
+								  "img_id"      => $pic_temp,	
+								  "org_img_w"   => $handle->image_src_x,
+								  "org_img_h"   => $handle->image_src_y,							  
 	           					 );
 	           	
 	           	$encoded = json_encode($json);
@@ -53,6 +55,8 @@ if (!empty($_FILES)) {
 	           					  "imagewidth" 	=> $handle->image_dst_x,
 	           					  "imageheight"	=> $handle->image_dst_y,
 								  "img_id"      => $pic_temp,
+								  "org_img_w"   => $handle->image_src_x,
+								  "org_img_h"   => $handle->image_src_y,
 	           					 );
 	       		else
 	           		//$json = array("result" => 0);
@@ -61,6 +65,8 @@ if (!empty($_FILES)) {
 	           					  "imagewidth" 	=> $handle->image_dst_x,
 	           					  "imageheight"	=> $handle->image_dst_y,
 								  "img_id"      => $pic_temp,
+								  "org_img_w"   => $handle->image_src_x,
+								  "org_img_h"   => $handle->image_src_y,
 	           					 );
 	           	
 	           	$encoded = json_encode($json);

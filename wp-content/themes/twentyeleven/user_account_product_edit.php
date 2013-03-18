@@ -1366,18 +1366,30 @@ $("#file_upload").live('click', function () {
                                                   
 										        	$imgpos.width  = dataresponse.imagewidth;
 										            $imgpos.height = dataresponse.imageheight;
+													
+																										
 													$("#cropbox").remove();
 										        	$(".jcrop-holder").remove();
 										        	$(this).attr("id","cropbox");
 										            $(this).hide();
 										            $("#image_container").append(this);
 										            
+													var w = parseInt(dataresponse.org_img_w);
+													var h = parseInt(dataresponse.org_img_h);
+													console.log("\n\n\nIMG width: "+w+"\n");
+													console.log("IMG width: "+h+"\n\n\n");
+													
+													var tmp_w = Math.round(400*400/parseInt(w));
+													console.log("CROP WIDTH: " +tmp_w);
+													
+													
 										            $(this).fadeIn().Jcrop({
+														minSize: [tmp_w,tmp_w],
 														onChange: showPreview,
 														onSelect: showPreview,
 														aspectRatio: 1,
 														onSelect: updateCoords,
-														setSelect: [ 0, 0, 150, 150 ],
+														setSelect: [ 0, 0, tmp_w, tmp_w ],
 														allowSelect: false
 													});
 													

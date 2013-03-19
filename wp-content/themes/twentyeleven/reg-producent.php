@@ -634,12 +634,12 @@ div.content #center_content p{
         <span id="phoneInfo"></span>
     </div>
     <div>
-        <label for="producentname">Nazwa, pod którą chciałbyś występować:</label><input id="producentname" type="text" name="producentname" />
+        <label for="producentname">Twoja nazwa:</label><input id="producentname" type="text" name="producentname" />
         <br /> 
         <span id="producentnameInfo"></span>
     </div>
     <div>
-        <label for="www">Twoja strona internetowa <br /> (opcjonalnie):</label><input id="www" type="text" name="www" /> 
+        <label for="www">Twoja strona internetowa:</label><input id="www" type="text" name="www" /> 
         <br />
         <span id="wwwInfo"></span>
     </div>
@@ -650,10 +650,9 @@ div.content #center_content p{
      </div>
      <? // DODAC WSTAWIENIE ZDJEC !!! ?>
      <div class="ProdRegZgoda">
-        <input type="checkbox" name="PrzetwarzanieZgoda" class="PrzetwarzanieZgoda" checked=""/>
-		Wyrażam zgodę na przetwarzanie danych osobowych w celach rekrutacji zgodnie z ustawą z dnia 29 sierpnia 1997 r. o ochronie danych osobowych (tekst jedn.: Dz. U. z 2002 r. Nr 101, poz. 926 z późn. zm.).       
-        <br />
-        <span id="PrzetwarzanieZgodaInfo"></span>
+        <input type="checkbox" name="PrzetwarzanieZgoda" class="PrzetwarzanieZgoda" checked="" style="width:10px"/>
+		Wyrażam zgodę na przetwarzanie danych osobowych przez NaOpak z siedzibą w Opocznie, w celu ewidencji sprzedaży oraz realiacji zamówień, zgodnie z ustawą z dnia 29 sierpnia 1997 r. o ochronie danych osobowych (Dz. U. z 2002 r., Nr.101, poz 926 ze zmianami).
+
      </div>
      
      
@@ -663,11 +662,7 @@ div.content #center_content p{
 	</form>
 <div class="echo">
 <?php
-/*
 
-Wyrażam zgodę na przetwarzanie danych osobowych w celach rekrutacji zgodnie z ustawą z dnia 29 sierpnia 1997 r. o ochronie danych osobowych (tekst jedn.: Dz. U. z 2002 r. Nr 101, poz. 926 z późn. zm.).
-
-*/
 if (isset($_POST['submit'])) {
 
 	$fullname = $_POST["fullname"];

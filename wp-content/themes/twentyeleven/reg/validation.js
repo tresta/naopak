@@ -2,6 +2,7 @@ $(document).ready(function(){
 	//global vars
 	var form = $("#customForm");
 	
+	var login = $("#login");
 	var email1 = $("#email1");
 	var email2 = $("#email2");
 	var pass1 = $("#pass1");
@@ -12,6 +13,7 @@ $(document).ready(function(){
 	var city = $("#city");
 	var check = $("#check");
 		
+	var loginInfo = $("#loginInfo")
 	var email1Info = $("#email1Info");
 	var email2Info = $("#email2Info");
 	var pass1Info = $("#pass1Info");
@@ -23,6 +25,7 @@ $(document).ready(function(){
 	var checkInfo = $("#checkInfo");
 		
 	//On blur
+	login.blur(validateLogin);
 	email1.blur(validateEmail1);
 	email2.blur(validateEmail2);
 	pass1.blur(validatePass1);
@@ -34,13 +37,29 @@ $(document).ready(function(){
 
 	//On Submitting
 	form.submit(function(){
-		if(validateEmail1() && validateEmail2() && validatePass1() && validatePass2() && validateName() && validateSurname() && validateAddress() && validateCity() && validateCheck())
+		if(validateLogin() && validateEmail1() && validateEmail2() && validatePass1() && validatePass2() && validateName() && validateSurname() && validateAddress() && validateCity() && validateCheck())
 			return true
 		else
 			return false;
 	});
 	
 	//validation functions
+	function validateLogin(){
+		if(login.val().length < 1){
+			login.addClass("error");
+			loginInfo.text("To pole nie może być puste.");
+			loginInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			login.removeClass("error");
+			loginInfo.text("");
+			loginInfo.removeClass("error");
+			return true;
+		}
+	}
+	
 	function validateEmail1(){
 		//testing regular expression
 		var a = $("#email1").val();

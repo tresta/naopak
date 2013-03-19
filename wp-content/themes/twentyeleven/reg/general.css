@@ -5,7 +5,6 @@
 {
 	color:#F00;
 }
-
 .ProdRegDesc{
 	font-size:12px;
 	margin-top:10px;
@@ -27,9 +26,8 @@
 
 .rejestracja
 {
-	width:1000px;
+	width:550px;
 	margin-left:0px;
-	margin-top:10px;
 }
 .rejestracjaForm
 {
@@ -49,10 +47,10 @@
 {
 	margin-bottom:150px;
 }
-div.content #center_content .rejestracjaProducentaOpis p
+.rejestracjaProducentaOpis
 {
 	float:right;
-	width:500px;
+	width:450px;
 	color: #797979;;
 	font-family: Arial,  Verdana, Helvetica, sans-serif;
 	font-size: 11px;	
@@ -94,9 +92,12 @@ div.content #center_content .rejestracjaProducentaOpis p
 	font-weight: 700;
 	line-height: 1.4em;
 }
-#customForm input{	
-	padding: 6px;
+#customForm input{
+	width: 220px;
+	padding: 5px;
 	color: #000;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-size: 11px;
 	border: 1px solid #000;
 }
 #customForm select{
@@ -115,8 +116,6 @@ div.content #center_content .rejestracjaProducentaOpis p
 	font-size: 11px;
 	border: 1px solid #000;
 }
-
-
 
 #customForm input.error{
 	background: #f8dbdb;
@@ -149,6 +148,7 @@ div.content #center_content .rejestracjaProducentaOpis p
 	color: #e46c6e;
 }
 #customForm #submit{
+	padding: 5px;
 	background: #999;
 	color: #fff;
 	font-weight: 700;
@@ -157,7 +157,8 @@ div.content #center_content .rejestracjaProducentaOpis p
 	cursor: pointer;
 }
 #customForm #submit:hover{
-	background: #666;
+	background: #F99D31;
+	color: #000;
 }
 #customForm #send{
 	background: #999;
@@ -168,7 +169,8 @@ div.content #center_content .rejestracjaProducentaOpis p
 	cursor: pointer;
 }
 #customForm #send:hover{
-	background: #666;
+	background: #F99D31;
+	color: #000;
 }
 #error{
 	margin-bottom: 20px;

@@ -1,0 +1,14 @@
+19-03-2013 20:54:47 - ERROR - 34067088 - Table 'bollo_naopak.wpp_newsletter_stats' doesn't exist
+19-03-2013 20:54:47 - ERROR - 34067840 - Table 'bollo_naopak.wpp_newsletter_stats' doesn't exist
+19-03-2013 20:54:47 - ERROR - 34068632 - Table 'bollo_naopak.wpp_newsletter_stats' doesn't exist
+19-03-2013 20:54:47 - ERROR - 34069328 - Duplicate column name 'user_id'
+19-03-2013 20:54:50 - ERROR - 34155960 - Unknown column 'newsletter_id' in 'wpp_newsletter_stats'
+19-03-2013 20:54:50 - ERROR - 34156720 - Unknown column 'newsletter_id' in 'wpp_newsletter_stats'
+19-03-2013 20:54:50 - ERROR - 34157488 - Unknown column 'date' in 'wpp_newsletter_stats'
+19-03-2013 20:54:50 - ERROR - 34158056 - Duplicate column name 'user_id'
+19-03-2013 20:54:50 - ERROR - 34158784 - Duplicate column name 'email_id'
+19-03-2013 20:54:50 - ERROR - 34159488 - Duplicate column name 'link_id'
+19-03-2013 20:54:50 - ERROR - 34160200 - Duplicate column name 'user_id'
+19-03-2013 20:54:50 - ERROR - 34160976 - Duplicate column name 'created'
+19-03-2013 20:54:50 - ERROR - 34161664 - Duplicate column name 'url'
+19-03-2013 20:54:50 - ERROR - 34162392 - Duplicate column name 'anchor'

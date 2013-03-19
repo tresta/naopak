@@ -5,21 +5,14 @@
 				$creds['user_password'] = $_POST["pass"];
 				$creds['remember'] = false;
 				$user = wp_signon( $creds, false );
-				if ( is_wp_error($user) )
+				if (!is_wp_error($user) )
 				{
-					echo $user->get_error_message();
-				}
-				else
-				{
-					echo  '<script>location.href = "' . site_url() . '/"</script>';
+					wp_redirect( home_url() ); exit; 
 				}
 			}
-			if(isset($_POST['login-submit']))
-			{
-				if ($_GET['logout'] == 'true') {
-						wp_logout();
-						echo  '<script>location.href = "' . site_url() . '/"</script>';
-				}
+			if ($_GET['logout'] == 'true') {
+					wp_logout();
+					wp_redirect( home_url() ); exit; 
 			}
 			
 			function print_basket()

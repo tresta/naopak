@@ -1,0 +1,21 @@
+19-03-2013 20:54:26 - ERROR - 33340248 - Can't DROP 'name'; check that column/key exists
+19-03-2013 20:54:26 - ERROR - 33340984 - Table 'bollo_naopak.wpp_newsletter' doesn't exist
+19-03-2013 20:54:26 - ERROR - 33341704 - Table 'bollo_naopak.wpp_newsletter' doesn't exist
+19-03-2013 20:54:48 - ERROR - 34100272 - Duplicate column name 'message'
+19-03-2013 20:54:48 - ERROR - 34101008 - Duplicate column name 'message_text'
+19-03-2013 20:54:48 - ERROR - 34101752 - Duplicate column name 'subject'
+19-03-2013 20:54:48 - ERROR - 34102464 - Duplicate column name 'type'
+19-03-2013 20:54:48 - ERROR - 34103232 - Duplicate column name 'created'
+19-03-2013 20:54:48 - ERROR - 34104016 - Duplicate column name 'status'
+19-03-2013 20:54:48 - ERROR - 34104648 - Duplicate column name 'total'
+19-03-2013 20:54:48 - ERROR - 34105368 - Duplicate column name 'last_id'
+19-03-2013 20:54:48 - ERROR - 34106200 - Duplicate column name 'sent'
+19-03-2013 20:54:48 - ERROR - 34106920 - Duplicate column name 'send_on'
+19-03-2013 20:54:48 - ERROR - 34107632 - Duplicate column name 'track'
+19-03-2013 20:54:48 - ERROR - 34108344 - Duplicate column name 'editor'
+19-03-2013 20:54:48 - ERROR - 34109056 - Duplicate column name 'sex'
+19-03-2013 20:54:49 - ERROR - 34109760 - Duplicate column name 'query'
+19-03-2013 20:54:49 - ERROR - 34110488 - Duplicate column name 'preferences'
+19-03-2013 20:54:49 - ERROR - 34111176 - Duplicate column name 'options'
+19-03-2013 20:54:49 - ERROR - 34111880 - Can't DROP 'name'; check that column/key exists
+19-03-2013 21:00:35 - ERROR - 26904616 - Blocked by transient newsletter_main_engine set 189 seconds ago

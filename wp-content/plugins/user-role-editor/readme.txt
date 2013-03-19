@@ -2,11 +2,11 @@
 Contributors: shinephp
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=vladimir%40shinephp%2ecom&lc=RU&item_name=ShinePHP%2ecom&item_number=User%20Role%20Editor%20WordPress%20plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: user, role, editor, security, access, permission, capability
-Requires at least: 3.0
-Tested up to: 3.3.1
-Stable tag: 3.5.4
+Requires at least: 3.2
+Tested up to: 3.5.1
+Stable tag: trunk
 
-User Role Editor WordPress plugin makes the role capabilities changing easy. You can change any standard WordPress user role (except administrator).
+User Role Editor WordPress plugin makes the role capabilities changing easy. You can change any standard WordPress user role.
 
 == Description ==
 
@@ -15,7 +15,8 @@ Just turn on check boxes of capabilities you wish to add to the selected role an
 Add new roles and customize its capabilities according to your needs, from scratch of as a copy of other existing role. 
 Unnecessary self-made role can be deleted if there are no users whom such role is assigned.
 Role assigned every new created user by default may be changed too.
-Capabilities could be assigned on per user basis. You can add new capabilities and remove unnecessary capabilities which could be left from uninstalled plugins.
+Capabilities could be assigned on per user basis. Multiple roles could be assigned to user simultaneously.
+You can add new capabilities and remove unnecessary capabilities which could be left from uninstalled plugins.
 Multi-site support is provided.
 
 To read more about 'User Role Editor' visit [this page](http://www.shinephp.com/user-role-editor-wordpress-plugin/) at [shinephp.com](shinephp.com).
@@ -35,8 +36,9 @@ Installation procedure:
 == Frequently Asked Questions ==
 - Does it work with WordPress 3.3 in multi-site environment?
 Yes, it works with WordPress 3.3 multi-site. By default plugin works for every blog from your multi-site network as for locally installed blog.
-To update selected role globally for the Network you should turn on the "Apply to All Sites" checkbox.
+To update selected role globally for the Network you should turn on the "Apply to All Sites" checkbox. You should have superadmin privileges to use User Role Editor under WordPress multi-site.
 
+To read full FAQ section visit [this page](http://www.shinephp.com/user-role-editor-wordpress-plugin/#faq) at [shinephp.com](shinephp.com).
 
 == Screenshots ==
 1. screenshot-1.png User Role Editor main form
@@ -53,26 +55,27 @@ To read more about 'User Role Editor' visit [this page](http://www.shinephp.com/
 * [FullThrottle](http://fullthrottledevelopment.com/how-to-hide-the-adminstrator-on-the-wordpress-users-screen) - For the code to hide administrator role at admin backend.
 
 = Translations =
+* Arabic: [Yaser](http://www.englize.com/)
+* Brasilian Portuguese: [Onbiz](http://www.onbiz.com.br/), [Rafael Galdencio](http://www.arquiteturailustrada.com.br)
 * Dutch: [Frank Groeneveld](http://ivaldi.nl), [Rémi Bruggeman](http://www.remisan.be)
-* French: [Presse et Multimedia](http://presse-et-multimedia.fr/blog/), [Whiler](http://blogs.wittwer.fr/whiler)
+* French: [Presse et Multimedia](http://presse-et-multimedia.fr/blog), [Whiler](http://blogs.wittwer.fr/whiler)
+* German: [Peter](http://www.becker-heidmann.de)
 * Hebrew: [Aryo Digital](http://www.aryo.co.il), [Sagive](http://www.sagive.co.il)
+* Hindi: [Outshine Solutions](http://outshinesolutions.com)
+* Italian: [Tristano Ajmone](http://www.zenfactor.org), [Umberto Sartori](http://venezialog.net)
 * Lithuanian: [Vincent G](http://host1free.com)
-* Persian: [Parsa](http://parsa.ws), [Good Life](http://good-life.ir)
+* Persian: [Parsa](http://parsa.ws), [Good Life](http://good-life.ir), Amir Khalilnejad
+* Polish: [TagSite](http://www.tagsite.eu), [Bartosz](www.digitalfactory.pl)
 * Russian: [Vladimir Garagulya](http://shinephp.com)
-* Spanish: [Victor Ricardo Díaz (INFOMED)](http://www.sld.cu), [Dario Ferrer](http://www.darioferrer.com)
+* Serbian: [Diana](http://wpcouponshop.com)
+* Spanish: [Victor Ricardo Díaz (INFOMED)](http://www.sld.cu)
 * Swedish: [Christer Dahlbacka](www.startlinks.eu), [Andréas Lundgren](http://adevade.com/)
+* Traditional Chinese (Jingxin Lai)
 * Turkish: [Muhammed YILDIRIM](http://ben.muhammed.im)
 * -----------------------------------------------------
 * translations below are included to the package, but all of them are outdated and every file needs to be updated. You are welcome!
-* Finnish: [Lauri Merisaari](http://www.viidakkorumpu.fi)
-* Japanese: Kaz, [Technolog.jp](http://technolog.jp)
-* Italian: [Umberto Sartori](http://venezialog.net), [Talksina](http://www.iadkiller.org), [Alessandro Mariani](http://technodin.org)
-* Belorussian: [Marsis G.](http://pc.de) - needs update
-* Brasilian Portuguese: [Rafael Galdencio](http://www.arquiteturailustrada.com.br) - needs update
-* Chinese: [Yackytsu](http://www.jackytsu.com) - needs update
-* German: [Peter](http://www.red-socks-reinbek.de) - needs update
-* Hungarian: [István](http://www.blacksnail.hu) - needs update
-* Polish: [TagSite](http://www.tagsite.eu) - needs update
+* Finnish, Japanese, Belorussian, Chinese, Hungarian
+
 
 Dear plugin User!
 If you wish to help me with this plugin translation I very appreciate it. Please send your language .po and .mo files to vladimir[at-sign]shinephp.com email. Do not forget include you site link in order I can show it with greetings for the translation help at shinephp.com, plugin settings page and in this readme.txt file.
@@ -81,115 +84,44 @@ Share with me new ideas about plugin further development and link to your site w
 
 
 == Changelog ==
-= 3.5.4 =
-* 4.04.2012
-* Lithuanian translation is added, thanks to Vincent G.
-* Spanish translation is updated, thanks to Victor Ricardo Díaz.
 
-= 3.5.3 =
-* 24.03.2012
-* French translation is updated, thanks to Presse et Multimedia.
-* Hebrew translation is updated, thanks to Aryo Digital.  
-* Persian translation is updated, thanks to Parsa.  
-* Minor CSS fix to provide compatibility with RTL languages.
+= 3.10 =
+* 04.02.2013
+* You can assign to user multiple roles simultaneously. Use user level roles and capabilities editor for that. You can click 'Capabilities' link under selected user row at users list or 'Assign Roles and Additional Capabilities' link at user profile.
+* Critical bug fix: hidden deprecated WordPress core capabilities had turned on after any update made to the role. Deprecated capabilities are not currently in use by WordPress itself. But old plugins or themes could still use them. If you use some outdated code I recommend you to check all roles, you modified with User Role Editor, and turn off unneeded deprecated capabilities there.
+* User with Administrator role is secured better from editing, deletion by user with lower capabilities.
 
-= 3.5.2 =
-* 17.03.2012
-* Turkish translation is updated, thanks to Muhammed YILDIRIM.
-* Dutch translation is updated, thanks to Frank Groeneveld.  
+= 3.9 =
+* 07.01.2013
+* Compatibility with bbPress 2.2 new user roles model is provided. More details about the reason of such update at http://shinephp.com/bbpress-user-role-editor-conflict-fix/
+* "Reset" button works differently now. It restores WordPress roles data to its 1st, default state, exactly that, what WordPress has just after fresh install/latest version update. Be careful with it, make database backup copy before fulfill this operation. Some plugin could require reactivation to function properly after roles reset. 
+* Arabic translation is added. Thanks to [Yaser](http://www.englize.com/)
+* Slovak translation is added. Thanks to [Branco](http://webhostinggeeks.com/blog/)
 
-= 3.5.1 =
-* 24.02.2012
-* Bugs for multi-site WordPress network installation were discovered and fixed: 1) blocked login to admin back-end; 2) empty users list for administrators of single sites; 3) empty authors drop down list at the post editor page.
-* If URE plugin is not enabled for single site administrator, then URE is automatically excluded from plugins list available to that administrator.
+= 3.8.3 =
+* 14.12.2012
+* Compatibility issue with WordPress 3.5 was found (thanks to Sonja) and fixed: $wpdb->prepare() was called without 2nd $args parameter - removed.
 
-= 3.5 =
-* 19.02.2012
-* User Role Editor could be available now for single site administrators (Administrator role) under multi-site environment. You should define URE_ENABLE_SIMPLE_ADMIN_FOR_MULTISITE constant in your blog wp-config.php file for that. Insert this line "define('URE_ENABLE_SIMPLE_ADMIN_FOR_MULTISITE', 1);" there, if you decide to give single site admin such opportunity.
-* One of "User Role Editor" users with 1100+ sites in the multi-site network reported that URE doesn't update roles for all sites, but stalls somewhere in the middle. Other network update method is realized as alternative. Due to my tests it works approximately 30 times faster. If you met the same problem, try it. It will be great if you share your experience with me. In order select alternative method of all sites update add this line to you blog wp-config.php file "define('URE_MULTISITE_DIRECT_UPDATE', 1);". But be careful. It's recommended to make 1st try on the backup copy, not on a live site.
-* Persian translation is updated. Thanks to [Parsa](http://parsa.ws).
+= 3.8.2 =
+* 02.12.2012
+* load_plugin_textdomain() call moved to the 'plugins_loaded' hook for higher compatibility with translation plugins.
+* Traditional Chinese translation is added. Thanks to Jingxin Lai.
 
-= 3.4 =
-* 21.01.2012
-* You can see/edit "Administrator" role now. Insert this line of code "define('URE_SHOW_ADMIN_ROLE', 1);" into your wp-config.php file and login with administrator account for that.
-  If for some reason your Administrator role missed some capabilities added by plugins or themes, you can fix that. But be careful with changing "Administrator" role, do not turn off accidentally some critical capabilities to not block your admin users.
+= 3.8.1 =
+* 21.10.2012
+* Fix: URE taked roles names from the database directly and ignored changes made to roles names on the fly by other plugins or themes, names, which were cached by WordPress internally, but were not written to the database. URE uses WordPress internal cache now.
+* Roles names translation update: if URE translation file doesn't exist for blog default language, URE uses WordPress internal translation now.
+* Serbian translation is added. Thanks to [Diana](http://wpcouponshop.com).
 
-= 3.3.3 =
-* 11.01.2012
-* Spanish (Dario) and Swedish (Andréas) translations update.
+= 3.8 =
+* 01.09.2012
+* Bug fix: Some times URE didn't show real changes it made to the database. The reason was that direct update of database did not invalidate data stored at WordPress cache. Special thanks to [Knut Sparhell](http://sparhell.no/knut/) for the help to detect this critical issue.
+* WordPress core capabilities are shown separately from capabilities added by plugins and manually.
+* If you configured URE to show you 'Administrator' role, you will see its capabilities, but you can not exclude any capability from it. I may just add capabilities to the Administrator role now. The reason - Administrator role should have all existing capabilities included.
+* Brasilian Portuguese translation is updated. Thanks to [Onbiz](http://www.onbiz.com.br/).
 
-= 3.3.2 =
-* 02.01.2012
-* Enhance server side validation for user input of new role name, minor bug fixes.
+Click [here](http://www.shinephp.com/user-role-editor-wordpress-plugin-changelog)</a> to look at [the rest part](http://www.shinephp.com/user-role-editor-wordpress-plugin-changelog) of User Role Editor changelog.
 
-= 3.3.1 =
-* 12.12.2011
-* Compatibility with Internet Explorer fix: It automatically replaced '&copy' in '&copy_from_user_role' URL parameter inside JavaScript code to copyright sign.So I should use other name for this parameter. Thanks to Michael Wiekenberg for the help with isolating this issue.
-
-= 3.3 =
-* 10.12.2011
-* New role can be created as a copy of other existing one.
-* You can hide/show deprecated capabilties (level_1 - level_10).
-* Users with "Administrator" role are not shown to other users with "list_users" capability.
-* Plugin data cleanup is added - plugin options will be automatically deleted if you delete plugin via WordPress link.
-* Some code enhancements are applied, e.g. optimization and using of WordPress API instead of self-written routine.
-* New bugs are added :) - it's a joke of course, but if you find some, please report, I will fix it ASAP.
-
-= 3.2.1 =
-* 01.08.2011
-* This is minor bug-fix update. If you didn't meet this bug you can skip this update. "usermeta" table doesn't exist bug appearing on some multi-site blogs is fixed. Read [this post](http://wordpress.org/support/topic/multisite-setup-gives-usermeta-table-error) for more information. Thanks to harpinder for discovering this bug and for the help with testing updated code. "usermeta" Db table name is define by more universal way now.
-
-= 3.2 =
-* 25.07.2011
-* If you run multi-site WordPress network, User Role Editor will automatically duplicate all roles from the main blog (blog with mininal ID) to every new created blog.
-* Some fixes, refactoring and logic change were applied to code to enhance its productivity. There were some complaints for PHP timeout error after trying to open plugin Settings page. 
-* Thanks to Grant Norwood for code fix to hide PHP warnings he met during plugin usage. 
-* Hebrew translation is added. Thanks to Sagive.
-* French translation is updated. Thanks to Whiler.
-* Japan translation is updated. Thanks to Kaz.
-* Spanish translation is updated. Thanks to Dario.
-
-= 3.1.1 =
-* 07.07.2011
-* CUSTOM_USER_META_TABLE constant is used now for more compatibility with core WordPress API. Thanks to [Lorenzo Nicoletti](http://www.extera.com) 
-* Turkish translation is updated. Thanks to Muhammed YILDIRIM. Other language translators are welcome!
-
-= 3.1 =
-* 03.06.2011
-* Add/Remove capability boxes are added to the User Role Editor
-* Capabilities could be assigned directly to the user, additionally to the assigned role
-* PHP4 is not supported by this plugin anymore. Update your site to PHP5 in order to use this plugin and [near to release WordPress 3.2 :)](http://wordpress.org/about/requirements/) 
-* Minor compatibility issues with other plugins  were fixed
-
-= 3.0.4 =
-* 18.04.2011
-* minor update: PHP4 compatibility issue in code was discovered and fixed. PHP5 users could skip it. PHP4 users should think about update to PHP5, as WordPress 3.2 (planned to July 2011) will not provide PHP4 compatibility more.
-
-= 3.0.3 =
-* 17.04.2011
-* Capabilities in human readable form are sorted by alphabet (usefull for translated form) now, not by inner capability name.
-* Finnish translation is added.
-
-= 3.0.2 =
-* 11.04.2011
-* Swedish translation is added.
-* Alternative Italian translation is added. Rename ure-it_IT_1.* files to ure-it_IT.* if wish to try it.
-* ShinePHP.com RSS feed is excluded from plugin settings page. Use this link http://feeds.feedburner.com/shinephp with your favorite RSS reader if you wish to read it.
-
-= 3.0.1 =
-* 27.02.2011
-* Spanish translation is updated. Thanks to [Dario Ferrer](http://www.darioferrer.com). Other language translation wait for update too. You are welcome :).
-
-= 3.0 =
-* 06.02.2011
-* Compatibility with WordPress 3.1 Release Candidate 3 and real multi-site feature are provided.
-* Role capabilities list are sorted now in the alphabetical order. Easier to find - easier to manage.
-* Code fix: allows to not lose new custom capability if it is added to other than 'Administrator' role. Thanks to Marcin for the contribution to the code of this plugin.
-* Under multi-site environment:
-* 1) URE has additional option 'Apply to All Sites' which allows you to apply updates to the selected role at all sites of your network. If some site has not such role, it will be added. You should know, that this option works for the role update only. All other actions as 'Add' or 'Delete' role still works for the currently selected blog/site only.
-* 2) URE plugin settings page is available only to user with network superadministrator rights.
-
-Older records are available at [this page](http://www.shinephp.com/user-role-editor-wordpress-plugin/#changelog).
 
 == Additional Documentation ==
 

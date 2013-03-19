@@ -1,5 +1,5 @@
 OGOLNE:
-- wylogowywanie
+- wylogowywanie  -DONE
 - newsletter
 - uzupelnic kategorie
 - uzupelnic kolory
@@ -8,7 +8,6 @@ OGOLNE:
 - mapa strony (tu jestes)
 - uwzgldeniac promowane przedmioty
 - formularz kontaktowy
-- newsletter
 - na stronach gdzie wyswietlane sa jakies dane i nie poda sie ID to wyswietlac komunikat i przekierowac
 - zostaje tam gdzie sie logowales
 

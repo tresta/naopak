@@ -1492,7 +1492,7 @@ else if($show == 1)
 	$kategoria="";
 	$data_dodania="";
 	$nazwa_projektanta="";
-	$tagi="".
+	$tagi="";
 	$dostepnosc=0;
 	$number+=7;
 	$i=0;

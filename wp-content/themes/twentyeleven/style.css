@@ -2706,7 +2706,7 @@ div.footer_links {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 10px;
 	color: #9E9E9E;
 	float: none;
@@ -2792,7 +2792,7 @@ div.clear {
 .echo {
 	margin:5px;
 	color: #e46c6e;
-	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
 	font-size: 11px;
 	float:right;
 	padding-right:20px;

@@ -600,7 +600,7 @@ div.content #center_content p{
 <div class="hfeed content">
 <div id="main_contetn">
 <div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
+	
 
 
 <div id="menu_produktow">

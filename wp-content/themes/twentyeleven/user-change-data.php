@@ -300,9 +300,7 @@ function dbDisconnect($connection) {
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url')?>/reg/general.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_url')?>/css/user_account_style.css" type="text/css" />
 
-<div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-</div>
+
 <? 
 global $current_user;
 get_currentuserinfo();

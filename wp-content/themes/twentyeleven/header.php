@@ -401,6 +401,12 @@ function getMaterialsList($kolor) {
 <div id="tooltip12" class="tooltip">
  <?php getMaterialsList("zielony"); ?>
 </div>
+<div class="breadcrumbs">
+    <?php if(function_exists('bcn_display'))
+    {
+        bcn_display();
+    }?>
+</div>
 <!-- tooltip element -->
 	<div id="main">
     

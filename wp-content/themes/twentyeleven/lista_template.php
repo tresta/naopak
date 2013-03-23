@@ -1098,8 +1098,6 @@ span.selectOption:hover {
 <div class="hfeed content">
 <div id="main_contetn">
 <div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-
     <div class="galeria_lista">    
     <a href="
 	<?php 

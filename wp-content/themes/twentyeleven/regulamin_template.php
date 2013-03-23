@@ -101,12 +101,6 @@ font-size: 11px;
 
 <div class="hfeed content">
 <div class="regulamin_content">
-  <div class="px10" style="float:left; margin-top:15px; margin-bottom:15px; width:950px;">
-    Jesteś tutaj: 
-    <a href="naopak.com.pl" style="color:#525252">NaOpak.com.pl</a>
-     > 
-    <a href="naopak.com.pl/regulamin" style="color:#525252">regulamin</a>
-  </div>
   <div style="width:160px; margin-right:27px; clear:both">
     <div class="hr" style="margin-top:-15px; width:140px;"></div>
     <div style=" margin-left:-1px; margin-top:-3px;" class="px14 menu-black-nolink">Regulamin:</div>

@@ -338,7 +338,7 @@ div.content .filtruj_btn a , div.content .powrot_btn a{
 <div class="hfeed content">
 
 <div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
+	
 
     <div class="galeria_lista">    
 	  <span class="powrot_btn">

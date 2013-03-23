@@ -1,11 +1,11 @@
 OGOLNE:
-- wylogowywanie  -DONE
+- wylogowywanie -DONE
 - newsletter
 - uzupelnic kategorie
 - uzupelnic kolory
 - gdzie jest formularz rejestracji producenta ?
-- czcionka wszedzie na Helvetica
-- mapa strony (tu jestes)
+- czcionka wszedzie na Helvetica -DONE
+- mapa strony (tu jestes) -DONE
 - uwzgldeniac promowane przedmioty
 - formularz kontaktowy
 - na stronach gdzie wyswietlane sa jakies dane i nie poda sie ID to wyswietlac komunikat i przekierowac

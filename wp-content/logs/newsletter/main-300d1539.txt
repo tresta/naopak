@@ -19,3 +19,5 @@
 19-03-2013 20:54:49 - ERROR - 34111176 - Duplicate column name 'options'
 19-03-2013 20:54:49 - ERROR - 34111880 - Can't DROP 'name'; check that column/key exists
 19-03-2013 21:00:35 - ERROR - 26904616 - Blocked by transient newsletter_main_engine set 189 seconds ago
+23-03-2013 13:20:45 - ERROR - 28305232 - Blocked by transient newsletter_main_engine set 149 seconds ago
+23-03-2013 13:31:04 - ERROR - 28305232 - Blocked by transient newsletter_main_engine set 185 seconds ago

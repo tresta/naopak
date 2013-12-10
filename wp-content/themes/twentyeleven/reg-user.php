@@ -24,6 +24,23 @@ get_header();
 	<form id="customForm" action="<?php the_permalink(); ?>" method="post">
     <p id="formh4">1. Email i haslo:</p>
     <div class="leftForm">
+        <label for="login">Login:</label><input id="login" type="text" name="login" />
+        <br />
+        <span id="loginInfo"></span>
+     </div>
+    <div class="formclear"></div>
+    <div class="leftForm">
+        <label for="name1">Imię:</label><input id="name1" type="text" name="name1" />
+        <br />
+        <span id="name1Info"></span>
+     </div>
+    <div>
+        <label for="surname">Nazwisko:</label><input id="surname" type="text" name="surname" />
+        <br />
+        <span id="surnameInfo"></span>
+    </div>
+    <div class="formclear"></div>
+    <div class="leftForm">
         <label for="email1">Twój adres email:</label><input id="email1" type="text" name="email1" /> 
         <br />
         <span id="email1Info"></span>
@@ -45,26 +62,13 @@ get_header();
         <span id="pass2Info"></span>
     </div>
     <div class="formclear"></div>
-    <p id="formh4">2. Twoje dane:</p>
-     <div class="leftForm">
-        <label for="name1">Imię:</label><input id="name1" type="text" name="name1" />
-        <br />
-        <span id="name1Info"></span>
-     </div>
-    <div>
-        <label for="surname">Nazwisko:</label><input id="surname" type="text" name="surname" />
-        <br />
-        <span id="surnameInfo"></span>
-    </div>
-    <div class="formclear"></div>
+    <p id="formh4">2. Dane adresowe:</p>
      <div class="leftForm">
         <label for="company">Nazwa firmy (opcjonalnie):</label><input id="company" type="text" name="company" />
     </div>
     <div>
         <label for="phone">Numer telefonu (opcjonalnie):</label><input id="phone" type="text" name="phone" />
     </div>
-    <div class="formclear"></div>
-    <p id="formh4">3. Adres wysyłki:</p>
     <div>
         <label for="address">Adres (ulica, nr mieszkania, kod)</label><input id="address" type="text" name="address" />
         <br />
@@ -92,6 +96,7 @@ get_header();
 
 if (isset($_POST['submit'])) {
 
+	$login = $_POST["login"];
 	$email = $_POST["email1"];
 	$pass =  $_POST["pass1"];
 	$token = md5(uniqid(mt_rand(), true));
@@ -112,7 +117,7 @@ if (isset($_POST['submit'])) {
 	else
 	{
 		$user_pass = $pass;
-		$user_login = $email;
+		$user_login = $login;
 		$user_nicename = $email;
 		$user_email = $email;
 		$display_name = $email;

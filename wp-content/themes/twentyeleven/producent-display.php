@@ -348,9 +348,7 @@ function dbDisconnect($connection) {
 
 ?>
 
-<div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-</div>
+
 <? include "menu.php"; ?>
 <div id="right_content_page" >
 <?

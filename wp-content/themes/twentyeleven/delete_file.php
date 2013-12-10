@@ -1,7 +1,7 @@
 <?php
 
 $prod_id = $_POST['prod_id'];
-$file_nr = $_POST['file_number'];
+//$file_nr = $_POST['file_number'];
 $file_to_del = $_POST['file_to_del'];
 //$next_file = $_GET['next_file'];
 
@@ -27,13 +27,13 @@ function renamefile($name, $file_to_del, $z, $na)  //************************** 
 	rename($dirname.$old, $dirname.$new);  // z old na new
 }
 
-function delete($dirname, $file_nr )//************************** delete
+function delete($dirname, $file_to_del )//************************** delete
 {
 	if (!file_exists($dirname)) {
 	  return false;
 	}
 	//echo '     deleteing     '.$dirname;
-	foreach(glob($dirname.$file_nr."_*.jpg") as $file){
+	foreach(glob($dirname.$file_to_del."_*.jpg") as $file){
 		//echo 'deleteing file: '.$dirname.$file_nr."_*.jpg <br />";
 		unlink($file);
 	}
@@ -80,16 +80,17 @@ function delete($dirname, $file_nr )//************************** delete
 	//echo "<br /><br /><br />";
 	
 	
-
 	//$filecount =  $filecount; //count($zdjecia);
 	$filecount = count($zdjecia);
-	echo "filecount= $filecount<br />";
-	echo "filecount= ".count($zdjecia)."<br />";
+	echo "filecount= $filecount  ";
+	//echo "filecount= ".count($zdjecia)."<br />";
+	$sql_query='';
 	$i=0;
 	if($filecount==0)
 	{
 		$sql_query = "DELETE FROM s_zdjecia WHERE id_produkt = '".$prod_id."'";
 	}
+	/*
 	else
 	{
 		$sql_query = "UPDATE s_zdjecia SET ";
@@ -113,8 +114,34 @@ function delete($dirname, $file_nr )//************************** delete
 		}
 		$sql_query .= " WHERE id_produkt = '".$prod_id."'";
 	}
+	*/
+	else
+	{
+		$sql_query = "UPDATE s_zdjecia SET ";
+		
+		for($i ; $i <= $filecount ; $i++)
+		{
+			//$sql_query .= ' zdj'.($i+1)." = '".$zdjecia[$i]."'";
+			if($i==$filecount)
+			{
+				if($i > 0 )			
+					$sql_query .= ' ,zdj'.($i+1)." = ''";					
+				else
+					$sql_query .= ' zdj'.($i+1)." = ''";
+			}
+			else
+			{
+				if($i > 0 )			
+					$sql_query .= ' ,zdj'.($i+1)." = '".$zdjecia[$i]."'";					
+				else
+					$sql_query .= ' zdj'.($i+1)." = '".$zdjecia[$i]."'";
+			}
+		}
+		$sql_query .= " WHERE id_produkt = '".$prod_id."'";
+	}
+	
 	mysql_query($sql_query);
-	echo $sql_query;
+	//echo $sql_query;
 	
 	mysql_close($connection);
 	

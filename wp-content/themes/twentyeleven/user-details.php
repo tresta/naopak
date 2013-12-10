@@ -293,24 +293,21 @@ if ( is_user_logged_in() ) {
 
 function displayUserData($id) {
 	$connection = dbConnect();
-	$result = mysql_query("SELECT user.ID, user.user_login AS userLogin, user.user_registered AS dateRegistered, dane.id, dane.imie AS name, dane.nazwisko AS surname, dane.adres AS adres, dane.miejscowosc AS miejscowosc, dane.firma AS firma, dane.kraj AS kraj
-FROM wpp_users AS user
-INNER JOIN s_dane_kontaktowe AS dane ON user.ID = dane.id_uzytkownik
-WHERE user.ID = $id")
+	$result = mysql_query("SELECT user.ID, user.user_login AS userLogin, user.user_registered AS dateRegistered, dane.id, dane.imie AS name, dane.nazwisko AS surname , dane.adres AS adres, dane.miejscowosc AS miejscowosc, dane.firma AS firma, dane.kraj AS kraj,  prod.nazwa AS nazwa FROM wpp_users AS user INNER JOIN s_producenci  AS prod ON user.ID = prod.id_uzytkownik INNER JOIN s_dane_kontaktowe AS dane ON user.ID = dane.id_uzytkownik  WHERE user.ID = $id")
 	or die(mysql_error());
 	$num_rows = mysql_num_rows($result);
-	echo '<a href="' . get_bloginfo('url') . '/user-display" class="back_btn">wstecz</a>';
+	echo '<a href="' . get_bloginfo('url') . '/producent-display">Wstecz.</a>';
 	echo '<table id="myTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
 		<thead> 
 		<tr>
-		<th class="{sorter: false}">Nazwa użytkownika</th>
-		<th class="{sorter: false}">Data zarejestrowania</th>
-		<th class="{sorter: false}">Imię</th>
-		<th class="{sorter: false}">Nazwisko</th>
-		<th class="{sorter: false}">Adres</th>
-		<th class="{sorter: false}">Miejscowość</th>
-		<th class="{sorter: false}">Firma</th>
-		<th class="{sorter: false}">Kraj</th>
+		<th>Nazwa producenta</th>
+		<th>Nazwa użytkownika</th>
+		<th>Data zarejestrowania</th>
+		<th>Imię</th>
+		<th>Nazwisko</th>
+		<th>Adres</th>
+		<th>Miejscowość</th>
+		<th>Kraj</th>
 		</tr>
 		</thead>
 		<tbody>'; 
@@ -319,13 +316,13 @@ WHERE user.ID = $id")
 		while($row = mysql_fetch_array($result))
 		{
 			echo '<tr>';
+			echo '<td id="producent' . $i . '">' . $row['nazwa'] . '</td>';
 			echo '<td>' . $row['userLogin'] . '</td>';
 			echo '<td>' . $row['dateRegistered'] . '</td>';
 			echo '<td>' . $row['name'] . '</td>';
 			echo '<td>' . $row['surname'] . '</td>';
 			echo '<td>' . $row['adres'] . '</td>';
 			echo '<td>' . $row['miejscowosc'] . '</td>';
-			echo '<td>' . $row['firma'] . '</td>';
 			echo '<td>' . $row['kraj'] . '</td>';
 			echo '</tr>';
 			echo '<tr>';	
@@ -413,9 +410,7 @@ function dbDisconnect($connection) {
 
 ?>
 
-<div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-</div>
+
 <? include "menu.php"; ?>
 <div id="right_content_page" >
 <?

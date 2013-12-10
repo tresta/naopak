@@ -32,14 +32,7 @@
 	
 	//echo '<BR>$_COOKIE["prod_ID"]= '.$_COOKIE['prod_ID']."<BR>";
 	//echo "<BR>prod_id= ".$prod_id."<BR>";	
-/**
- * @package asd
- *
- * @author: Wery
- * @url: http://www.customweb.com
 
- Template Name: User Account - add product3
- */
 
 function add_scripts()
 {
@@ -437,9 +430,7 @@ if ( is_user_logged_in() ) {
 
 ?>
 
-<div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-</div>
+
 <? include "menu.php"; ?>
 <div id="right_content_page" >
 <!-- TRESC STRONY -->
@@ -976,7 +967,8 @@ echo $ooo;
 		$('.obraz_produktu').live("click", function(e) {
 				var prod_id = $('#prod_id').val();
 				var img_id = $(this).attr("id");
-
+				var nr = $(this).attr('nr');
+				
 				var offset = $(this).children("span").offset(); 
 				var x = e.pageX - offset.left;
 				var y = e.pageY - offset.top;
@@ -984,86 +976,26 @@ echo $ooo;
 				if(y>=0 & y<14 & x>39 & x<55)
 				{
 				 	$('#file_upload').uploadify('disable', false);
-	
-					var nr = $(this).attr('nr');
-					var prod_id = $('#prod_id').val();
-				
+
 					console.log('DELETEING!');
-					//console.log('prod_id: ' + prod_id);
-					console.log('nr: ' + nr);
-					
-					var file_to_del = $(this).attr('id');
+				
+					var file_to_del = img_id;
 					console.log('deleteing file: ' + file_to_del); 	
-				 
+					
+				 	$(this).remove();				
+					
 					$.ajax({
 						type: 'POST',
 						url: 'http://naopak.com.pl/wp-content/themes/twentyeleven/delete_file.php',
 						data: { 
-								file_number: nr, 
+								//file_number: nr, 
 								prod_id: prod_id,
 								file_to_del: file_to_del 
 							  },
 						cache: false,
 						success: function(data)
 						{ 		
-							//alert('ajax data delete response: ' + data);
-							
-							$('.obraz_produktu:eq('+nr+')').remove();				
-				
-							var img_src = 'http://naopak.com.pl/img/products/'+prod_id;
-							var last_li_alt = parseInt($('ul#img_list li:last').attr('alt'));
-							var cachekiller = Math.floor(Math.random()*1001);
-							
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							
-							console.log('img_names: ' + img_names.join('  <->  '));								
-							img_names = $.grep(img_names, function(value) {
-				//				  console.log('deleted: ' + value);
-							  return value != file_to_del;
-							});
-							console.log('DEL img_names: ' + img_names.join('  <->  '));
-								
-								
-							var i=parseInt(nr);
-							var x=0;
-							for(i; i<last_li_alt ;i++)	
-							{	
-								console.log('#################################');
-								console.log('i= '+i);	
-								x=i+1;
-				
-								console.log('x= '+x+' ,nr= '+$('.obraz_produktu[nr="'+x+'"]').attr("nr"));
-								$('.obraz_produktu[nr="'+x+'"]').attr({ nr: i });	
-								console.log('x= '+x+' ,nr= '+$('.obraz_produktu[nr="'+x+'"]').attr("nr"));
-								
-								var img_name = img_names[i];
-							
-								
-								console.log('src= '+$('.obraz_produktu[nr="'+i+'"]').find('img').attr("src"));
-								$('.obraz_produktu[nr="'+i+'"]').find('img').attr({ src: img_src+'/'+img_name+'_t.jpg?'+cachekiller });	
-								console.log('src= '+$('.obraz_produktu[nr="'+i+'"]').find('img').attr("src"));
-											
-											
-								console.log('id= '+$(".obraz_produktu[nr=\""+i+"\"]").attr("id"));
-								$("ul#img_list li[alt=\""+i+"\"] input:button").attr("id",i);
-								console.log('id= '+$(".obraz_produktu[nr=\""+i+"\"]").attr("id"));
-								
-								$("#uploadifyUploader").show();
-								 //console.log("zamieniono= "+x+'  na= '+i);				 
-				
-							}	
-										
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
+							console.log(data);
 						},
 						error: function (data, status, e)
 						{
@@ -1072,17 +1004,85 @@ echo $ooo;
 				}
 				else if(x>=0 & x<27)
 				{
-					 move_left(prod_id,img_id);
+					console.log("left: ");
+					//console.log("prod_id: " + prod_id + "  img_id: " + img_id);
+
+					var first_id = $('.obraz_produktu:first').attr('id');
+					//parseInt($('.obraz_produktu:last').attr('id'));
+					
+					if(img_id!=first_id)
+					{
+						var alt_prev = 0;
+						var alt_current = parseInt($(this).attr("nr"));
+						alt_prev = alt_current - 1;
+						
+						var img_prev = $(".obraz_produktu:eq("+alt_prev+")").attr("id");
+						var img_current = img_id;//$(this).attr("xxx");
+						
+						var tmp_img = img_names[alt_current];
+						img_names[alt_current] = img_names[alt_prev];
+						img_names[alt_prev] = tmp_img;
+						
+						console.log('###');
+						console.log("img prod id: " + prod_id);
+						console.log("img actual id: " + img_current);
+						console.log("img last id: " + last_id);
+						console.log("img next id: " + img_next);
+						console.log("img current nr: " + alt_current);
+						console.log("img next nr: " + alt_next);					
+						console.log('###');
+						
+						element1 = $(".obraz_produktu:eq("+alt_current+")");
+						element2 = $(".obraz_produktu:eq("+alt_prev+")");//element1.next();
+						element2.insertAfter(element1);
+					
+						element1.attr({ nr: alt_prev });
+						element2.attr({ nr: alt_current });
+
+					   $("#loading")
+					   .ajaxStart(function(){
+						   $(this).show();
+					   })
+					   .ajaxComplete(function(){
+						   $(this).hide();			
+					   });
+						
+						$.ajax({
+							type: 'POST',	
+							secureuri:false,
+							url:'http://naopak.com.pl/wp-content/themes/twentyeleven/rename.php',
+							data: { 
+									file_number1: alt_prev, 
+									file_number2: alt_current,
+									img_from: img_prev,
+									img_to: img_current,
+									prod_id: prod_id
+								  },
+							cache: false,
+							success: function(data)
+							{ 		
+								console.log(data);				
+							},
+							error: function(xhr, thrownError)
+							{
+							  
+							  alert(xhr.statusText);
+							  alert('error: ' +  thrownError);	
+							}
+					   });				 
+					}	
+					else
+					{
+						console.log('###  ->  LAST ID');
+					}
+					
+				
 				}
 				else if(x>27 & x<55)
 				{
-					 //move_right(prod_id,img_id);
 					console.log("move_right: ");
-					//console.log("prod_id: " + prod_id + "  img_id: " + img_id);
-					  
-					//var nr = $(this).attr('nr');
+
 					var last_id = $('.obraz_produktu:last').attr('id');
-					//parseInt($('.obraz_produktu:last').attr('id'));
 					
 					if(img_id!=last_id)
 					{
@@ -1135,7 +1135,7 @@ echo $ooo;
 							cache: false,
 							success: function(data)
 							{ 		
-								//alert(data);				
+								console.log(data);				
 							},
 							error: function(xhr, thrownError)
 							{
@@ -1152,8 +1152,7 @@ echo $ooo;
 					
 				}
 			}
-		);
-			
+		);			
 		$(".obraz_produktu").live("mouseleave", function(e) {
   			$(this).children("span").css('display', 'none');
 		});
@@ -1315,12 +1314,22 @@ $("#file_upload").live('click', function () {
 										            $(this).hide();
 										            $("#image_container").append(this);
 										            
+										            var w = parseInt(dataresponse.org_img_w);
+													var h = parseInt(dataresponse.org_img_h);
+													console.log("\n\n\nIMG width: "+w+"\n");
+													console.log("IMG width: "+h+"\n\n\n");
+													
+													var tmp_w = Math.round(400*400/parseInt(w));
+													console.log("CROP WIDTH: " +tmp_w);
+													
+													
 										            $(this).fadeIn().Jcrop({
+														minSize: [tmp_w,tmp_w],
 														onChange: showPreview,
 														onSelect: showPreview,
 														aspectRatio: 1,
 														onSelect: updateCoords,
-														setSelect: [ 0, 0, 150, 150 ],
+														setSelect: [ 0, 0, tmp_w, tmp_w ],
 														allowSelect: false
 													});
 													

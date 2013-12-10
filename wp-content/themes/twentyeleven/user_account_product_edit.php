@@ -526,9 +526,7 @@ if ( is_user_logged_in() ) {
 
 ?>
 
-<div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-</div>
+
 <? include "menu.php"; ?>
 <div id="right_content_page" >
 <!-- TRESC STRONY -->
@@ -674,10 +672,11 @@ function list_img($prod_id)
 	$id_sql = mysql_query($sql);
 	$sql_result = mysql_fetch_row($id_sql);
 	
-	
+	//
 	for($i=0; $i<$filecount; $i++)
 	{		
-		$file_list.="<div class=\"obraz_produktu\" id=\"".$sql_result[$i+2]."\" style=\"display:inline;\"><span class=\"arrows\"></span> <img src=\"http://naopak.com.pl/img/products/".$prod_id."/".$sql_result[$i+2]."_t.jpg?".$rand."\" ></div>";
+		$file_list.="<div class=\"obraz_produktu\" id=\"".$sql_result[$i+2]."\" style=\"display:inline;\" nr=\"$i\"><span  class=\"arrows\"></span><!--
+  --><img  src=\"http://naopak.com.pl/img/products/".$prod_id."/".$sql_result[$i+2]."_t.jpg?".$rand."\" ></div>";
 	} 	
 	echo $file_list;
 }
@@ -890,13 +889,39 @@ list_img($prod_id);
 </div> <?php // closeing <div class="main_content"> ?>
 </div> <?php // closeing <div class="hfeed content"> ?>
 
+<? // zmiany z dodawaniem i przesowaniem zdjecia robic po kliknieciu zapisz !!! ?>
 	<script language="javascript">	
 		
 		var img_names = new Array(); 
 		
 		
 		$(document).ready(function(){	
-			//var jcrop_api;		
+			
+			$("#right_content_page p").click(function(){
+				var ids = [];
+				//var img_counter = $(".obraz_produktu").length;
+				//console.log("IMG COUNT: "+img_counter);
+				$(".obraz_produktu").each(function(){
+						ids.push($(this).attr("id"));
+					});
+					
+				console.log(ids.join('\n'));	
+				$.ajax({
+					url: "<? echo get_bloginfo('template_url'); ?>/test_js_array.php",
+					type: "POST",	
+					data: {
+							img_array: ids,
+							cosik: "testowy cosik"
+						},
+					datatype : "html",
+		            success: function(data)
+	                { 	
+						console.log(data);
+					}
+				});
+				
+			});
+			
 		/*		
 		jQuery('#_crop_bttn').hover(function(){
 			jQuery(this).css('background-color', '#F99D31');
@@ -909,17 +934,27 @@ list_img($prod_id);
 			$("#kategoria").val('<? echo $kategoria; ?>');
 			<? echo $tagi; ?>
 			$("#add_product_form").submit(function() {
-
+				var ids = [];
+				$(".obraz_produktu").each(function(){
+						ids.push($(this).attr("id"));
+					});
+					
 				var formData = $(this).serialize();
-				console.log(formData);
+				//console.log(formData);
 				var prod_id = $("#prod_id").val();
 				var tag_id = <? echo $id_tag ?>;
 				var proj_id =<? echo $id_projektant ?>;
+							
+				formData+="&tag_id="+tag_id;
+				formData+="&proj_id="+proj_id;							
 										
 				$.ajax({
 					url: "<? echo get_bloginfo('template_url'); ?>/product_update.php",
 					type: "POST",	
-					data: formData+"&prod_id="+prod_id+"&id_projektant="+proj_id+"&id_tag="+tag_id,
+					data: {
+						form: formData,
+						img_array: ids
+					},
 					datatype : "html",
 		            success: function(data)
 	                { 	
@@ -943,11 +978,10 @@ list_img($prod_id);
 				location.href="http://naopak.com.pl/przeglad-produktow";		
 			});	
 			
-            
 			$("#btn_delete").click(function() {
 				
                 //var folder_name = "http://naopak.com.pl/img/products/";
-                var id = <? echo $prod_id; ?>;
+                var id = '<? echo $prod_id; ?>';
                 $.ajax({
 					url: "<? echo get_bloginfo('template_url'); ?>/delete_folder.php",
 					type: "POST",	
@@ -988,7 +1022,8 @@ list_img($prod_id);
 		$('.obraz_produktu').live("click", function(e) {
 				var prod_id = $('#prod_id').val();
 				var img_id = $(this).attr("id");
-
+				var nr = $(this).attr('nr');
+				
 				var offset = $(this).children("span").offset(); 
 				var x = e.pageX - offset.left;
 				var y = e.pageY - offset.top;
@@ -996,105 +1031,113 @@ list_img($prod_id);
 				if(y>=0 & y<14 & x>39 & x<55)
 				{
 				 	$('#file_upload').uploadify('disable', false);
-	
-					var nr = $(this).attr('nr');
-					var prod_id = $('#prod_id').val();
-				
+
 					console.log('DELETEING!');
-					//console.log('prod_id: ' + prod_id);
-					console.log('nr: ' + nr);
-					
-					var file_to_del = $(this).attr('id');
+				
+					var file_to_del = img_id;
 					console.log('deleteing file: ' + file_to_del); 	
-				 
+					
+				 	$(this).remove();				
+					/*
 					$.ajax({
 						type: 'POST',
 						url: 'http://naopak.com.pl/wp-content/themes/twentyeleven/delete_file.php',
 						data: { 
-								file_number: nr, 
+								//file_number: nr, 
 								prod_id: prod_id,
 								file_to_del: file_to_del 
 							  },
 						cache: false,
 						success: function(data)
 						{ 		
-							//alert('ajax data delete response: ' + data);
-							
-							$('.obraz_produktu:eq('+nr+')').remove();				
-				
-							var img_src = 'http://naopak.com.pl/img/products/'+prod_id;
-							var last_li_alt = parseInt($('ul#img_list li:last').attr('alt'));
-							var cachekiller = Math.floor(Math.random()*1001);
-							
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							
-							console.log('img_names: ' + img_names.join('  <->  '));								
-							img_names = $.grep(img_names, function(value) {
-				//				  console.log('deleted: ' + value);
-							  return value != file_to_del;
-							});
-							console.log('DEL img_names: ' + img_names.join('  <->  '));
-								
-								
-							var i=parseInt(nr);
-							var x=0;
-							for(i; i<last_li_alt ;i++)	
-							{	
-								console.log('#################################');
-								console.log('i= '+i);	
-								x=i+1;
-				
-								console.log('x= '+x+' ,nr= '+$('.obraz_produktu[nr="'+x+'"]').attr("nr"));
-								$('.obraz_produktu[nr="'+x+'"]').attr({ nr: i });	
-								console.log('x= '+x+' ,nr= '+$('.obraz_produktu[nr="'+x+'"]').attr("nr"));
-								
-								var img_name = img_names[i];
-							
-								
-								console.log('src= '+$('.obraz_produktu[nr="'+i+'"]').find('img').attr("src"));
-								$('.obraz_produktu[nr="'+i+'"]').find('img').attr({ src: img_src+'/'+img_name+'_t.jpg?'+cachekiller });	
-								console.log('src= '+$('.obraz_produktu[nr="'+i+'"]').find('img').attr("src"));
-											
-											
-								console.log('id= '+$(".obraz_produktu[nr=\""+i+"\"]").attr("id"));
-								$("ul#img_list li[alt=\""+i+"\"] input:button").attr("id",i);
-								console.log('id= '+$(".obraz_produktu[nr=\""+i+"\"]").attr("id"));
-								
-								$("#uploadifyUploader").show();
-								 //console.log("zamieniono= "+x+'  na= '+i);				 
-				
-							}	
-										
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
-							console.log('###');
+							console.log(data);
 						},
 						error: function (data, status, e)
 						{
 						}
-					}); 
+					}); */
 				}
 				else if(x>=0 & x<27)
 				{
-					 move_left(prod_id,img_id);
+					console.log("left: ");
+					//console.log("prod_id: " + prod_id + "  img_id: " + img_id);
+
+					var first_id = $('.obraz_produktu:first').attr('id');
+					//parseInt($('.obraz_produktu:last').attr('id'));
+					
+					if(img_id!=first_id)
+					{
+						var alt_prev = 0;
+						var alt_current = parseInt($(this).attr("nr"));
+						alt_prev = alt_current - 1;
+						
+						var img_prev = $(".obraz_produktu:eq("+alt_prev+")").attr("id");
+						var img_current = img_id;//$(this).attr("xxx");
+						
+						var tmp_img = img_names[alt_current];
+						img_names[alt_current] = img_names[alt_prev];
+						img_names[alt_prev] = tmp_img;
+						
+						console.log('###');
+						console.log("img prod id: " + prod_id);
+						console.log("img actual id: " + img_current);
+						console.log("img last id: " + last_id);
+						console.log("img next id: " + img_next);
+						console.log("img current nr: " + alt_current);
+						console.log("img next nr: " + alt_next);					
+						console.log('###');
+						
+						element1 = $(".obraz_produktu:eq("+alt_current+")");
+						element2 = $(".obraz_produktu:eq("+alt_prev+")");//element1.next();
+						element2.insertAfter(element1);
+					
+						element1.attr({ nr: alt_prev });
+						element2.attr({ nr: alt_current });
+/*
+					   $("#loading")
+					   .ajaxStart(function(){
+						   $(this).show();
+					   })
+					   .ajaxComplete(function(){
+						   $(this).hide();			
+					   });
+						
+						$.ajax({
+							type: 'POST',	
+							secureuri:false,
+							url:'http://naopak.com.pl/wp-content/themes/twentyeleven/rename.php',
+							data: { 
+									file_number1: alt_prev, 
+									file_number2: alt_current,
+									img_from: img_prev,
+									img_to: img_current,
+									prod_id: prod_id
+								  },
+							cache: false,
+							success: function(data)
+							{ 		
+								console.log(data);				
+							},
+							error: function(xhr, thrownError)
+							{
+							  
+							  alert(xhr.statusText);
+							  alert('error: ' +  thrownError);	
+							}
+					   });		*/		 
+					}	
+					else
+					{
+						console.log('###  ->  LAST ID');
+					}
+					
+				
 				}
 				else if(x>27 & x<55)
 				{
-					 //move_right(prod_id,img_id);
 					console.log("move_right: ");
-					//console.log("prod_id: " + prod_id + "  img_id: " + img_id);
-					  
-					//var nr = $(this).attr('nr');
+
 					var last_id = $('.obraz_produktu:last').attr('id');
-					//parseInt($('.obraz_produktu:last').attr('id'));
 					
 					if(img_id!=last_id)
 					{
@@ -1124,7 +1167,7 @@ list_img($prod_id);
 					
 						element1.attr({ nr: alt_next });
 						element2.attr({ nr: alt_current });
-
+/*
 					   $("#loading")
 					   .ajaxStart(function(){
 						   $(this).show();
@@ -1147,7 +1190,7 @@ list_img($prod_id);
 							cache: false,
 							success: function(data)
 							{ 		
-								//alert(data);				
+								console.log(data);				
 							},
 							error: function(xhr, thrownError)
 							{
@@ -1155,7 +1198,7 @@ list_img($prod_id);
 							  alert(xhr.statusText);
 							  alert('error: ' +  thrownError);	
 							}
-					   });				 
+					   });		*/		 
 					}	
 					else
 					{
@@ -1208,8 +1251,8 @@ $("#btn_dodaj_produkt").live('click', function () {
 		     	var prod_id = jQuery('#prod_id').val();
 				var img_nr = $('.obraz_produktu').size();
 				
-				console.log('prod_id= '+prod_id);
-				console.log('img_nr= '+img_nr);	
+				//console.log('prod_id= '+prod_id);
+				//console.log('img_nr= '+img_nr);	
 				var img_id;
 				
 
@@ -1321,18 +1364,30 @@ $("#file_upload").live('click', function () {
                                                   
 										        	$imgpos.width  = dataresponse.imagewidth;
 										            $imgpos.height = dataresponse.imageheight;
+													
+																										
 													$("#cropbox").remove();
 										        	$(".jcrop-holder").remove();
 										        	$(this).attr("id","cropbox");
 										            $(this).hide();
 										            $("#image_container").append(this);
 										            
+													var w = parseInt(dataresponse.org_img_w);
+													var h = parseInt(dataresponse.org_img_h);
+													console.log("\n\n\nIMG width: "+w+"\n");
+													console.log("IMG width: "+h+"\n\n\n");
+													
+													var tmp_w = Math.round(400*400/parseInt(w));
+													console.log("CROP WIDTH: " +tmp_w);
+													
+													
 										            $(this).fadeIn().Jcrop({
+														minSize: [tmp_w,tmp_w],
 														onChange: showPreview,
 														onSelect: showPreview,
 														aspectRatio: 1,
 														onSelect: updateCoords,
-														setSelect: [ 0, 0, 150, 150 ],
+														setSelect: [ 0, 0, tmp_w, tmp_w ],
 														allowSelect: false
 													});
 													
@@ -1488,7 +1543,7 @@ $("#file_upload").live('click', function () {
 				  
 			  	  /*$('ul#img_list').append("<li alt=\""+img_nr+"\"><table class=\"li_img\"><tr><td><img src=\"http://naopak.com.pl/img/products/"+prod_id+"/"+img_id+'_t.jpg'+"\" /></td><td><input type=\"button\" class=\"btn_up\" value=\"up\" id=\""+img_nr+"\" xxx=\""+img_id+"\" /><br><input type=\"button\" class=\"btn_delete\" value=\"delete\" id=\""+img_nr+"\" xxx=\""+img_id+"\" /><br><input type=\"button\" class=\"btn_down\" value=\"down\" id=\""+img_nr+"\" xxx=\""+img_id+"\" /></td></tr></table></li>");*/			
 			  
-			   $('#img_list2').append('<div class="obraz_produktu" id="'+img_id+'" style="display:inline;" nr="'+img_nr+'" ><span class="arrows"></span><img src="http://naopak.com.pl/img/products/'+prod_id+'/'+img_id+'_t.jpg" style="" ></div>');
+			   $('#img_list2').append('<div class="obraz_produktu" id="'+img_id+'" style="display:inline;" nr="'+img_nr+'" ><span class="arrows"></span><img style="margin-left: -4px;" src="http://naopak.com.pl/img/products/'+prod_id+'/'+img_id+'_t.jpg" style="" ></div>');
 			  /*
 			  <div class="obraz_produktu" id="507d62b3c4d3" style="display:inline;">
       <span class="arrows"></span>

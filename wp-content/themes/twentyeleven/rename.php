@@ -53,7 +53,7 @@ function renamefile($name, $file_id, $z, $na)
 	$sql .= "zdj".($_POST['file_number2']+1)." = '".$_POST['img_from']."'";
 	$sql .= " WHERE id_produkt = '".$_POST['prod_id']."'";
 	
-	echo $sql;
+	//echo $sql;
 	
 	mysql_query($sql);
 	//$img_names =  mysql_fetch_row($result);

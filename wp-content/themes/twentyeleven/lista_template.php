@@ -20,6 +20,28 @@
 // global $wpdb;
 session_start();
 
+function trim_text($input, $length, $ellipses = true, $strip_html = true) {
+    //strip tags, if desired
+    if ($strip_html) {
+        $input = strip_tags($input);
+    }
+  
+    //no need to trim, already shorter than trim length
+    if (strlen($input) <= $length) {
+        return $input;
+    }
+  
+    //find last space within length
+    $last_space = strrpos(substr($input, 0, $length), ' ');
+    $trimmed_text = substr($input, 0, $last_space);
+  
+    //add ellipses (...)
+    if ($ellipses) {
+        $trimmed_text .= '...';
+    }
+  
+    return $trimmed_text;
+}
 
 //******************************************************************** WHERE QUERY
 //********************************************************************	
@@ -588,6 +610,8 @@ a:hover {text-decoration: none; }
 
 .cena_lista{
 	float:left;
+	font-size: 18px;
+	font-weight: 700;
 }
 
 div.tagi_lista a.tag_nazwa{
@@ -854,6 +878,11 @@ span.selectOption:hover {
 
 	$connection = mysql_connect('localhost', 'root', '');
     $db = mysql_select_db('bollo_naopak', $connection);
+	mysql_set_charset('utf8',$connection); 
+	mysql_query('SET character_set_connection=utf8');
+	mysql_query('SET character_set_client=utf8');
+	mysql_query('SET character_set_results=utf8');
+	mysql_query('set names utf8;');
 	
 	$query = "SHOW COLUMNS FROM `s_tag`";
 	$sql_tagi = mysql_query($query);
@@ -1069,8 +1098,6 @@ span.selectOption:hover {
 <div class="hfeed content">
 <div id="main_contetn">
 <div id="mapa_listowanie">
-	<div class="mapa">jesteś tutaj: <?php echo $_SERVER['REQUEST_URI']; ?></div>
-
     <div class="galeria_lista">    
     <a href="
 	<?php 
@@ -1463,13 +1490,19 @@ else if($show == 1)
 	$kategoria="";
 	$data_dodania="";
 	$nazwa_projektanta="";
-	$tagi="".
+	$tagi="";
 	$dostepnosc=0;
 	$number+=7;
 	$i=0;
 	$j=0;
 	
 	$prod_list = "<table>";
+	
+	$sql_query = mysql_query("SHOW COLUMNS FROM `s_tag`");
+	$nazwy_tagow = array();
+	while($tmp = mysql_fetch_array($sql_query)){		
+		array_push($nazwy_tagow, $tmp['Field']);
+	}
 	
 	//foreach ( $sql_results as $row )
 	while($row = mysql_fetch_array($result))		
@@ -1489,7 +1522,7 @@ else if($show == 1)
 	  if($dostepnosc == 0)
 	  	continue;
 		
-	 $opis = substr($opis, 0, 201);
+	 //$opis = substr($opis, 0, 201);
 		$prod_list .= "<tr>";
 	  
 	  	$projektant_tmp = "brak nazwy";
@@ -1519,6 +1552,12 @@ else if($show == 1)
 		{
 			$img_tag = "<img src=\"http://naopak.com.pl/$pic\" alt=\"image\" />";
 		}
+		
+		$your_desired_width=220;
+		if (strlen($opis) > $your_desired_width) 
+		{
+			$opis = trim_text($opis,$your_desired_width);
+		}	
 			
 		$prod_list .= '<td class="">	
 <div class="produkt_lista">
@@ -1535,15 +1574,13 @@ else if($show == 1)
 	    	<div class="opis_lista">'.$opis.'</div>
        		<div class="tagi_lista">';
 	
-	$sql_tagi = $wpdb->get_results("SHOW COLUMNS FROM `s_tag`", ARRAY_N);
-	  
 	  $adres = 'http://naopak.com.pl/lista';
 
 	  $tagi="";
 	  $i=1;
 	  for($j=8;$j<$number;$j++)
 	  {	
-	  	  $nazwa_tagu = substr_replace($sql_tagi[$i][0], "", 0, 3);
+	  	  $nazwa_tagu = substr_replace($nazwy_tagow[$i], "", 0, 3);
 
      	  $link=$adres."?typ_tagu=".$nazwa_tagu."&nazwa_tagu=".$row[$j];
 		  

@@ -1,0 +1,82 @@
+OGOLNE:
+- wylogowywanie -DONE
+- newsletter
+- uzupelnic kategorie
+- uzupelnic kolory
+- gdzie jest formularz rejestracji producenta ?
+- czcionka wszedzie na Helvetica -DONE
+- mapa strony (tu jestes) -DONE
+- uwzgldeniac promowane przedmioty
+- formularz kontaktowy
+- na stronach gdzie wyswietlane sa jakies dane i nie poda sie ID to wyswietlac komunikat i przekierowac
+- zostaje tam gdzie sie logowales
+
+DODAC:
+- obserwowane
+- ulubieni projektanci
+- google analitics
+- przycisk "kup teraz":
+	- przekierowanie do logowania
+	- wyswietlenie danych do wysyl
+- prywatne wiadomosci przez admina
+- SEO optymalizajca linkow
+- dorobic role uzytkownikow
+- strona producenta
+- formularz dodajacy baner reklamowy
+- formularz kontaktowy
+- dodac strone logowania, na ktora przenoszony jest user nie zalogowany wykonujacy akcje wymagajaca bycia zalogowanym (na stronie musi byc pamietane skad user zostal przekierowany) + CSS
+
+MAIN:
+- linki
+
+
+PRODUCT DISPLAY:
+- wyswietlac wymiary
+- dodaj do ulubionych
+- kontakt
+- like facebookowe
+- powrot
+- cena wysylki
+
+LISTA (obie wersje):
+- stronicowanie z wpisywaniem strony
+- kodowanie znakow z bazy danych
+
+LISTA (nie galeria):
++ ograniczyc opis
+- css ceny
+
+KOSZYK:
+- obliczanie wysylki
+- generowanie nr zamowienia
+- wysylanie maila do klienta
+- wysylanie PW do admina
+
+
+DODAJ PRODUKT:
+- co jak nie doda sie produktu, a doda sie zdjecia ?
+- css naglowek
+- ostre krawedzie
+- bez pomaranczu tytlko tytul
+- mini w odstepie jak krawedz
+- dodac wage produktu
+- wypisywanie uzytego ostatnio filtru
+- dodaj zdjecie -> dodja kolejne zdj
+- pole opis, na szerokosc jak oryginalnie, zeby widac jak wyglada tekst
++ dodajac zdjecia, proporcjonalnie robic min wielkosc cropa
+
+EDYTUJ PRODUKT:
+- css naglowek
++ dodajac zdjecia, proporcjonalnie robic min wielkosc cropa
+
+SZCZEGOLY PRODUCENTA:
++ dostosowac do wygladu konta
+
+HISTORIA ZAMOWIEN:
+- sortowanie po kliencie i dacie
+
+SZCZEGOLY ZAMOWIENIA:
+- dane kontaktowe osoby zamawiajacej
+- rozdzielenie zamowienia na osobnych sprzedajacych
+
+PW ALL TO DO
